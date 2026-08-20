@@ -1,38 +1,406 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-PT">
 <head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
-
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
-
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
-
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-  <base href="$FLUTTER_BASE_HREF">
-
   <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
-
-  <!-- iOS meta tags & icons -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="flutter_starter">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
-
-  <title>flutter_starter</title>
-  <link rel="manifest" href="manifest.json">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flutter Material 3 Starter - Pastoral 360 MCASD 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
 </head>
-<body>
-  <script src="flutter_bootstrap.js" async></script>
+<body class="dark-mode">
+  <div class="flutter-m3-root">
+    <!-- Flutter Material 3 Navigation Rail -->
+    <aside class="m3-navigation-rail">
+      <div class="m3-rail-header">
+        <div class="m3-logo">⚡</div>
+        <div class="m3-title">
+          <h2>Pastoral 360</h2>
+          <span>Flutter M3 Starter UI</span>
+        </div>
+      </div>
+
+      <!-- Extended FAB (Floating Action Button) -->
+      <button class="m3-fab" id="m3-btn-fab">
+        <span style="font-size: 20px;">➕</span>
+        <span>Nova Avaliação</span>
+      </button>
+
+      <!-- Material 3 Navigation Destinations -->
+      <nav class="m3-nav-destinations">
+        <button class="m3-nav-item active" data-tab="tab-dashboard">
+          <span class="icon-pill">📊</span>
+          <span>Dashboard</span>
+        </button>
+        <button class="m3-nav-item" data-tab="tab-mobile-eval">
+          <span class="icon-pill">📱</span>
+          <span>Avaliação Mobile</span>
+        </button>
+        <button class="m3-nav-item" data-tab="tab-evaluations">
+          <span class="icon-pill">📋</span>
+          <span>100 Pastores</span>
+        </button>
+        <button class="m3-nav-item" data-tab="tab-form">
+          <span class="icon-pill">📝</span>
+          <span>Ficha 51 Critérios</span>
+        </button>
+        <button class="m3-nav-item" data-tab="tab-report">
+          <span class="icon-pill">🖨️</span>
+          <span>Relatório 28 Itens</span>
+        </button>
+        <button class="m3-nav-item" data-tab="tab-churches">
+          <span class="icon-pill">🏛️</span>
+          <span>330 Congregações</span>
+        </button>
+        <button class="m3-nav-item" data-tab="tab-districts">
+          <span class="icon-pill">🗺️</span>
+          <span>Distritos</span>
+        </button>
+        <button class="m3-nav-item" data-tab="tab-contacts">
+          <span class="icon-pill">📞</span>
+          <span>Contactos</span>
+        </button>
+        <button class="m3-nav-item" data-tab="tab-settings">
+          <span class="icon-pill">⚙️</span>
+          <span>Configurações M3</span>
+        </button>
+      </nav>
+    </aside>
+
+    <!-- Flutter Material 3 Main Container -->
+    <main class="m3-main-container">
+      <!-- Top App Bar -->
+      <header class="m3-top-app-bar">
+        <div class="m3-app-bar-title">
+          <h1 id="m3-page-title">Flutter Material 3 Starter - Dashboard</h1>
+        </div>
+
+        <div class="m3-app-bar-actions">
+          <!-- Seed Color Picker (Exact Flutter M3 Starter Feature) -->
+          <div class="m3-color-picker-bar">
+            <span style="font-size: 11px; opacity: 0.7;">Cor M3:</span>
+            <div class="m3-color-dot active" style="background-color: #6750A4;" data-color="#6750A4"></div>
+            <div class="m3-color-dot" style="background-color: #0061A4;" data-color="#0061A4"></div>
+            <div class="m3-color-dot" style="background-color: #006A60;" data-color="#006A60"></div>
+            <div class="m3-color-dot" style="background-color: #984061;" data-color="#984061"></div>
+          </div>
+
+          <!-- Light / Dark Mode Icon Button -->
+          <button class="m3-icon-button" id="m3-btn-theme" title="Alternar Modo Claro / Escuro">
+            ☀️
+          </button>
+        </div>
+      </header>
+
+      <!-- Main Body Content -->
+      <div class="m3-body-content">
+        <!-- 1. DASHBOARD VIEW -->
+        <section id="tab-dashboard" class="tab-pane active">
+          <!-- M3 Stat Cards Grid -->
+          <div class="m3-grid-4">
+            <div class="m3-stat-card">
+              <span class="m3-stat-icon">👤</span>
+              <div class="m3-stat-info">
+                <span>TOTAL PASTORES</span>
+                <strong id="kpi-total-pastors">100</strong>
+              </div>
+            </div>
+
+            <div class="m3-stat-card" style="background-color: var(--m3-secondary-container); color: var(--m3-on-secondary-container);">
+              <span class="m3-stat-icon">🏛️</span>
+              <div class="m3-stat-info">
+                <span>CONGREGAÇÕES</span>
+                <strong>330</strong>
+              </div>
+            </div>
+
+            <div class="m3-stat-card" style="background-color: var(--m3-tertiary-container); color: var(--m3-on-tertiary-container);">
+              <span class="m3-stat-icon">⭐</span>
+              <div class="m3-stat-info">
+                <span>MÉDIA DA MISSÃO</span>
+                <strong id="kpi-avg-score">4.52</strong>
+              </div>
+            </div>
+
+            <div class="m3-stat-card">
+              <span class="m3-stat-icon">🏆</span>
+              <div class="m3-stat-info">
+                <span>CLASSIFICAÇÃO</span>
+                <strong style="font-size: 16px;">MUITO BOM (MB)</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- M3 Elevated Cards -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+            <div class="m3-card">
+              <div class="m3-card-header">
+                <h3>🔍 Consulta de Pastor (M3 Card)</h3>
+              </div>
+              <select id="select-dash-pastor" class="m3-text-field" style="margin-bottom: 16px;"></select>
+              
+              <div style="background-color: var(--m3-surface-variant); padding: 16px; border-radius: var(--m3-shape-corner-medium); display: flex; flex-direction: column; gap: 8px;">
+                <div style="display: flex; justify-content: space-between;">
+                  <span style="opacity: 0.7;">Distrito:</span>
+                  <strong id="dash-p-dist">-</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <span style="opacity: 0.7;">Província:</span>
+                  <strong id="dash-p-prov">-</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <span style="opacity: 0.7;">Cargo:</span>
+                  <strong id="dash-p-cargo">-</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <span style="opacity: 0.7;">Contacto:</span>
+                  <strong id="dash-p-phone">-</strong>
+                </div>
+                <hr style="border: none; border-top: 1px solid var(--m3-outline-variant); margin: 8px 0;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span>Média Geral Final:</span>
+                  <strong id="dash-p-avg" style="font-size: 20px; color: var(--m3-primary);">4.80</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="m3-card outlined">
+              <div class="m3-card-header">
+                <h3>📊 Desempenho pelas 5 Áreas (M3 Outlined Card)</h3>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 14px;">
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px;">
+                    <span>1. Assistência Pastoral (11 Critérios)</span>
+                    <strong id="bar-val-1">4.65</strong>
+                  </div>
+                  <div style="height: 8px; background-color: var(--m3-surface-variant); border-radius: 4px; overflow: hidden;">
+                    <div id="bar-fill-1" style="height: 100%; width: 93%; background-color: var(--m3-primary);"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px;">
+                    <span>2. Relacionamento Pessoal (11 Critérios)</span>
+                    <strong id="bar-val-2">4.70</strong>
+                  </div>
+                  <div style="height: 8px; background-color: var(--m3-surface-variant); border-radius: 4px; overflow: hidden;">
+                    <div id="bar-fill-2" style="height: 100%; width: 94%; background-color: var(--m3-primary);"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px;">
+                    <span>3. Família Pastoral (5 Critérios)</span>
+                    <strong id="bar-val-3">4.60</strong>
+                  </div>
+                  <div style="height: 8px; background-color: var(--m3-surface-variant); border-radius: 4px; overflow: hidden;">
+                    <div id="bar-fill-3" style="height: 100%; width: 92%; background-color: var(--m3-primary);"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px;">
+                    <span>4. Sermões e Doutrina (8 Critérios)</span>
+                    <strong id="bar-val-4">4.75</strong>
+                  </div>
+                  <div style="height: 8px; background-color: var(--m3-surface-variant); border-radius: 4px; overflow: hidden;">
+                    <div id="bar-fill-4" style="height: 100%; width: 95%; background-color: var(--m3-primary);"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px;">
+                    <span>5. Administração Distrital (16 Critérios)</span>
+                    <strong id="bar-val-5">4.65</strong>
+                  </div>
+                  <div style="height: 8px; background-color: var(--m3-surface-variant); border-radius: 4px; overflow: hidden;">
+                    <div id="bar-fill-5" style="height: 100%; width: 93%; background-color: var(--m3-primary);"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. MOBILE EVALUATION -->
+        <section id="tab-mobile-eval" class="tab-pane">
+          <div class="m3-card" style="max-width: 600px; margin: 0 auto;">
+            <h3>📱 Avaliação Mobile (Material 3 Form)</h3>
+            <div id="mobile-login-card">
+              <label style="display: block; font-size: 13px; margin-bottom: 6px;">E-mail do Oficial:</label>
+              <input type="email" id="officer-email" class="m3-text-field" value="anciao.central@mcasd.org" style="margin-bottom: 14px;">
+              <button class="m3-btn-filled" id="btn-officer-login" style="width: 100%;">Entrar na Avaliação</button>
+            </div>
+
+            <div id="mobile-eval-form" style="display: none;">
+              <div style="margin-bottom: 14px; font-size: 13px;">
+                Oficial: <strong id="logged-officer-email">anciao.central@mcasd.org</strong>
+              </div>
+              <label style="display: block; font-size: 13px; margin-bottom: 6px;">Distrito:</label>
+              <select id="mobile-select-district" class="m3-text-field" style="margin-bottom: 12px;"></select>
+              
+              <label style="display: block; font-size: 13px; margin-bottom: 6px;">Igreja:</label>
+              <select id="mobile-select-church" class="m3-text-field" style="margin-bottom: 12px;"></select>
+
+              <label style="display: block; font-size: 13px; margin-bottom: 6px;">Pastor:</label>
+              <select id="mobile-select-pastor" class="m3-text-field" style="margin-bottom: 16px;"></select>
+
+              <!-- Sliders -->
+              <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px;">
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 12px;"><span>Assistência:</span><strong id="lbl-mob-1">5.0</strong></div>
+                  <input type="range" min="1" max="5" step="0.5" value="5" id="sld-mob-1" style="width: 100%;">
+                </div>
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 12px;"><span>Relacionamento:</span><strong id="lbl-mob-2">5.0</strong></div>
+                  <input type="range" min="1" max="5" step="0.5" value="5" id="sld-mob-2" style="width: 100%;">
+                </div>
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 12px;"><span>Família:</span><strong id="lbl-mob-3">5.0</strong></div>
+                  <input type="range" min="1" max="5" step="0.5" value="5" id="sld-mob-3" style="width: 100%;">
+                </div>
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 12px;"><span>Sermões:</span><strong id="lbl-mob-4">5.0</strong></div>
+                  <input type="range" min="1" max="5" step="0.5" value="5" id="sld-mob-4" style="width: 100%;">
+                </div>
+                <div>
+                  <div style="display: flex; justify-content: space-between; font-size: 12px;"><span>Administração:</span><strong id="lbl-mob-5">5.0</strong></div>
+                  <input type="range" min="1" max="5" step="0.5" value="5" id="sld-mob-5" style="width: 100%;">
+                </div>
+              </div>
+
+              <button class="m3-btn-filled" id="btn-submit-mobile-eval" style="width: 100%;">Submeter Avaliação (Excel Sync)</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. PASTORS TABLE -->
+        <section id="tab-evaluations" class="tab-pane">
+          <div class="m3-card">
+            <div class="m3-card-header">
+              <h3>📋 Matriz de Avaliação dos 100 Pastores</h3>
+              <input type="text" id="input-search-pastor" class="m3-text-field" placeholder="🔍 Pesquisar pastor ou distrito..." style="max-width: 300px;">
+            </div>
+            <div style="overflow-x: auto;">
+              <table class="m3-table">
+                <thead>
+                  <tr>
+                    <th>Nº</th><th>Nome</th><th>Distrito</th><th>Província</th><th>Contacto</th><th>Assist.</th><th>Rel.</th><th>Fam.</th><th>Serm.</th><th>Admin.</th><th>Total</th><th>Média</th><th>Ação</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody-pastores"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- 4. FORM PRINTABLE SHEET (51 CRITERIA) -->
+        <section id="tab-form" class="tab-pane">
+          <div class="m3-card" style="background-color: #FFF; color: #000;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
+              <select id="select-form-pastor" class="m3-text-field" style="max-width: 300px;"></select>
+              <button class="m3-btn-filled" onclick="window.print()">🖨️ Imprimir A4</button>
+            </div>
+            <div id="printable-form">
+              <h2 style="text-align: center; font-size: 18px; margin-bottom: 12px;">FICHA DE AVALIAÇÃO PASTORAL - 51 CRITÉRIOS (MCASD 2026)</h2>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 13px; margin-bottom: 16px; background-color: #F3F4F6; padding: 12px; border-radius: 8px;">
+                <div>Pastor: <strong id="form-p-name">-</strong></div>
+                <div>Distrito: <strong id="form-p-dist">-</strong></div>
+                <div>Média Geral: <strong id="form-p-avg">4.80</strong></div>
+                <div>Classificação: <span class="m3-chip" id="form-p-class">EXCELENTE</span></div>
+              </div>
+              <div id="form-criteria-sections"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. QUARTERLY REPORT -->
+        <section id="tab-report" class="tab-pane">
+          <div class="m3-card" style="background-color: #FFF; color: #000;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
+              <select id="select-report-pastor" class="m3-text-field" style="max-width: 300px;"></select>
+              <button class="m3-btn-tonal" id="btn-save-report">💾 Salvar no Excel</button>
+            </div>
+            <h2 style="text-align: center; font-size: 18px; margin-bottom: 12px;">RELATÓRIO TRIMESTRAL DA ASSOCIAÇÃO PASTORAL (28 ITENS)</h2>
+            <div id="rep-pastor-display" style="font-weight: bold; margin-bottom: 12px;">-</div>
+            <table class="m3-table">
+              <thead><tr><th>Nº</th><th>Obreiros & Missão Global</th><th>Quantidade</th></tr></thead>
+              <tbody id="tbody-report-sec1"></tbody>
+              <tbody id="tbody-report-sec2"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 6. CHURCHES MAPPING -->
+        <section id="tab-churches" class="tab-pane">
+          <div class="m3-card">
+            <div class="m3-card-header">
+              <h3>🏛️ Mapeamento de 330 Congregações</h3>
+              <input type="text" id="input-search-church" class="m3-text-field" placeholder="🔍 Pesquisar igreja..." style="max-width: 300px;">
+            </div>
+            <div style="overflow-x: auto;">
+              <table class="m3-table">
+                <thead><tr><th>CN</th><th>Igreja</th><th>Distrito</th><th>Município</th><th>Província</th><th>Delegado</th></tr></thead>
+                <tbody id="tbody-churches"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- 7. DISTRICTS -->
+        <section id="tab-districts" class="tab-pane">
+          <div class="m3-grid-4" id="districts-cards-grid"></div>
+        </section>
+
+        <!-- 8. CONTACTS -->
+        <section id="tab-contacts" class="tab-pane">
+          <div class="m3-card">
+            <div class="m3-card-header">
+              <h3>📞 Lista Telefónica Ministerial</h3>
+              <input type="text" id="input-search-contact" class="m3-text-field" placeholder="🔍 Pesquisar..." style="max-width: 300px;">
+            </div>
+            <div style="overflow-x: auto;">
+              <table class="m3-table">
+                <thead><tr><th>Nº</th><th>Nome</th><th>Distrito</th><th>Província</th><th>Contacto</th><th>Ligar</th></tr></thead>
+                <tbody id="tbody-contacts"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- 9. SETTINGS -->
+        <section id="tab-settings" class="tab-pane">
+          <div class="m3-card">
+            <h3>⚙️ Configurações Flutter Material 3</h3>
+            <p style="font-size: 13px; opacity: 0.8; margin-top: 8px;">
+              Interface Flutter Material 3 Web adaptada diretamente de <code>https://flutter-material3-starter.web.app</code>.
+            </p>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal for Evaluation -->
+  <div class="modal-overlay" id="modal-eval" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6); display: none; align-items: center; justify-content: center; z-index: 1000;">
+    <div class="m3-card" style="width: 450px;">
+      <h3>✏️ Avaliar Pastor <span id="eval-modal-name"></span></h3>
+      <div style="display: flex; flex-direction: column; gap: 10px; margin: 16px 0;">
+        <label>Assistência (1-5): <input type="number" step="0.1" min="1" max="5" id="inp-eval-g" class="m3-text-field"></label>
+        <label>Relacionamento (1-5): <input type="number" step="0.1" min="1" max="5" id="inp-eval-h" class="m3-text-field"></label>
+        <label>Família (1-5): <input type="number" step="0.1" min="1" max="5" id="inp-eval-i" class="m3-text-field"></label>
+        <label>Sermões (1-5): <input type="number" step="0.1" min="1" max="5" id="inp-eval-j" class="m3-text-field"></label>
+        <label>Administração (1-5): <input type="number" step="0.1" min="1" max="5" id="inp-eval-k" class="m3-text-field"></label>
+      </div>
+      <div style="display: flex; justify-content: flex-end; gap: 10px;">
+        <button class="m3-btn-outlined" id="modal-cancel">Cancelar</button>
+        <button class="m3-btn-filled" id="modal-save">Guardar no Excel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
