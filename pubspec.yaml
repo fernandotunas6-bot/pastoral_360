@@ -1,37 +1,15 @@
 name: pastoral_360
-description: "Sistema Integral de Avaliação Pastoral e Gestão Ministerial (MCASD 2026)"
+description: "Plataforma de Avaliação Pastoral MCASD 2026 - Flutter Starter App"
 publish_to: 'none'
-
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
-  flutter: ">=3.19.0"
+  sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
-  flutter_web_plugins:
-    sdk: flutter
-  flutter_localizations:
-    sdk: flutter
-  
-  # State Management
-  flutter_riverpod: ^2.5.1
-  riverpod_annotation: ^2.5.1
-  
-  # Navigation
-  go_router: ^14.2.0
-  
-  # Authentication & Cloud
-  supabase_flutter: ^2.5.0
-  
-  # UI / Material 3
-  flutter_animate: ^4.5.2
-  google_fonts: ^6.2.0
-  
-  # Utilities
-  intl: ^0.19.0
+  cupertino_icons: ^1.0.6
 
 dev_dependencies:
   flutter_test:
@@ -40,4 +18,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  generate: true
+  assets:
+    - web/

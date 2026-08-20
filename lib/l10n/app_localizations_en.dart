@@ -1,8 +1,6 @@
-// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
-import 'app_localizations.dart';
 
-// ignore_for_file: type=lint
+import 'app_localizations.dart';
 
 /// The translations for English (`en`).
 class AppLocalizationsEn extends AppLocalizations {
@@ -153,8 +151,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get welcomeTitle => 'Welcome to Flutter Starter';
 
   @override
-  String get welcomeSubtitle =>
-      'A Material 3 starter template with authentication,\\ntheming, and responsive navigation';
+  String get welcomeSubtitle => 'A Material 3 starter template with authentication,\\ntheming, and responsive navigation';
 
   @override
   String get uiComponents => 'UI Components';
@@ -172,29 +169,25 @@ class AppLocalizationsEn extends AppLocalizations {
   String get material3Design => 'Material 3 Design';
 
   @override
-  String get material3Description =>
-      'Built with the latest Material Design system';
+  String get material3Description => 'Built with the latest Material Design system';
 
   @override
   String get dynamicTheming => 'Dynamic Theming';
 
   @override
-  String get dynamicThemingDescription =>
-      'Choose from 9 color themes with dark mode support';
+  String get dynamicThemingDescription => 'Choose from 9 color themes with dark mode support';
 
   @override
   String get responsiveLayout => 'Responsive Layout';
 
   @override
-  String get responsiveLayoutDescription =>
-      'Adapts to mobile, tablet, and desktop screens';
+  String get responsiveLayoutDescription => 'Adapts to mobile, tablet, and desktop screens';
 
   @override
   String get authenticationReady => 'Authentication Ready';
 
   @override
-  String get authenticationDescription =>
-      'Login and registration flows included';
+  String get authenticationDescription => 'Login and registration flows included';
 
   @override
   String get welcomeBack => 'Welcome Back';
@@ -233,15 +226,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get demoData => 'Demo';
 
   @override
-  String get viewingDemoData =>
-      'You\'re viewing demo data in guest mode. Login to see your real dashboard.';
+  String get viewingDemoData => 'You\'re viewing demo data in guest mode. Login to see your real dashboard.';
 
   @override
   String get close => 'Close';
 
   @override
-  String get thisDashboardShowsDemo =>
-      'This dashboard shows demo data in guest mode.';
+  String get thisDashboardShowsDemo => 'This dashboard shows demo data in guest mode.';
 
   @override
   String get viewRealAnalytics => 'View your real analytics data';
@@ -265,8 +256,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get recentActivity => 'Recent Activity';
 
   @override
-  String get userManagementLimited =>
-      'User management features are limited in guest mode.';
+  String get userManagementLimited => 'User management features are limited in guest mode.';
 
   @override
   String get addEditDeleteUsers => 'Add, edit, and delete users';
@@ -414,15 +404,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get allNotificationsRead => 'All notifications marked as read';
 
   @override
-  String get loginToManageNotifications =>
-      'Please login to manage notifications';
+  String get loginToManageNotifications => 'Please login to manage notifications';
 
   @override
   String get refresh => 'Refresh';
 
   @override
-  String get demoNotificationsMode =>
-      'These are demo notifications in guest mode.';
+  String get demoNotificationsMode => 'These are demo notifications in guest mode.';
 
   @override
   String get receiveRealTimeNotifications => 'Receive real-time notifications';
@@ -452,8 +440,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get yesterday => 'Yesterday';
 
   @override
-  String get themeChangeNotSaved =>
-      'Theme changes won\'t be saved permanently in guest mode.';
+  String get themeChangeNotSaved => 'Theme changes won\'t be saved permanently in guest mode.';
 
   @override
   String get saveThemePreferences => 'Save theme preferences permanently';
@@ -492,15 +479,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get material3StarterTemplate => 'A Material 3 starter template';
 
   @override
-  String get starterFeatures =>
-      'This is a production-ready Flutter starter template featuring:\\n\\n• Material 3 design system\\n• Dynamic theming with 9 color options\\n• Responsive navigation\\n• Authentication flows\\n• State management with Riverpod';
+  String get starterFeatures => 'This is a production-ready Flutter starter template featuring:\\n\\n• Material 3 design system\\n• Dynamic theming with 9 color options\\n• Responsive navigation\\n• Authentication flows\\n• State management with Riverpod';
 
   @override
   String get guestModeInHome => 'Guest Mode';
 
   @override
-  String get loginToAccessPersonalization =>
-      'Login to access theme customization and other personalized features.';
+  String get loginToAccessPersonalization => 'Login to access theme customization and other personalized features.';
 
   @override
   String get formsExample => 'Forms Example';
@@ -509,15 +494,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get userRegistrationForm => 'User Registration Form';
 
   @override
-  String get completeFormDescription =>
-      'Complete form with various field types and validations';
+  String get completeFormDescription => 'Complete form with various field types and validations';
 
   @override
   String get paymentForm => 'Payment Form';
 
   @override
-  String get creditCardFormDescription =>
-      'Credit card form with formatting and validation';
+  String get creditCardFormDescription => 'Credit card form with formatting and validation';
 
   @override
   String get feedbackForm => 'Feedback Form';
@@ -541,8 +524,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get passwordMustBe8Chars => 'Password must be at least 8 characters';
 
   @override
-  String get passwordComplexityRequired =>
-      'Password must contain uppercase, lowercase, and number';
+  String get passwordComplexityRequired => 'Password must contain uppercase, lowercase, and number';
 
   @override
   String get interests => 'Interests';
@@ -674,8 +656,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get sampleCardContent => 'This is sample content inside the card.';
 
   @override
-  String get browsingAsGuest =>
-      'You\'re browsing as a guest with limited features.';
+  String get browsingAsGuest => 'You\'re browsing as a guest with limited features.';
 
   @override
   String get loginToUnlock => 'Login to unlock:';
@@ -702,36 +683,31 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pageNotFound => '404 - Page Not Found';
 
   @override
-  String get pageNotFoundDescription =>
-      'The page you\'re looking for doesn\'t exist or has been moved.';
+  String get pageNotFoundDescription => 'The page you\'re looking for doesn\'t exist or has been moved.';
 
   @override
   String get serverError => '500 - Server Error';
 
   @override
-  String get serverErrorDescription =>
-      'Something went wrong on our end. Please try again later.';
+  String get serverErrorDescription => 'Something went wrong on our end. Please try again later.';
 
   @override
   String get networkError => 'Network Error';
 
   @override
-  String get networkErrorDescription =>
-      'Please check your internet connection and try again.';
+  String get networkErrorDescription => 'Please check your internet connection and try again.';
 
   @override
   String get unauthorized => '401 - Unauthorized';
 
   @override
-  String get unauthorizedDescription =>
-      'You don\'t have permission to access this resource.';
+  String get unauthorizedDescription => 'You don\'t have permission to access this resource.';
 
   @override
   String get somethingWentWrong => 'Something went wrong';
 
   @override
-  String get unexpectedError =>
-      'An unexpected error occurred. Please try again.';
+  String get unexpectedError => 'An unexpected error occurred. Please try again.';
 
   @override
   String get orClickToBrowse => 'or click to browse';
@@ -751,12 +727,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get dropDocumentFiles => 'Drop document files here';
 
   @override
-  String get dropImageFilesWithFormats =>
-      'Drop image files here\\n(JPG, PNG, GIF, WebP)';
+  String get dropImageFilesWithFormats => 'Drop image files here\\n(JPG, PNG, GIF, WebP)';
 
   @override
-  String get dropDocumentFilesWithFormats =>
-      'Drop document files here\\n(PDF, DOC, DOCX, TXT)';
+  String get dropDocumentFilesWithFormats => 'Drop document files here\\n(PDF, DOC, DOCX, TXT)';
 
   @override
   String get skip => 'Skip';
@@ -774,36 +748,31 @@ class AppLocalizationsEn extends AppLocalizations {
   String get welcomeToFlutterStarter => 'Welcome to Flutter Starter';
 
   @override
-  String get onboardingWelcomeDescription =>
-      'A production-ready Material 3 starter template with authentication, theming, and responsive navigation.';
+  String get onboardingWelcomeDescription => 'A production-ready Material 3 starter template with authentication, theming, and responsive navigation.';
 
   @override
   String get onboardingMaterial3Title => 'Material 3 Design';
 
   @override
-  String get onboardingMaterial3Description =>
-      'Built with the latest Material Design system featuring dynamic color themes and modern components.';
+  String get onboardingMaterial3Description => 'Built with the latest Material Design system featuring dynamic color themes and modern components.';
 
   @override
   String get onboardingResponsiveTitle => 'Responsive Navigation';
 
   @override
-  String get onboardingResponsiveDescription =>
-      'Adaptive navigation that works seamlessly across mobile, tablet, and desktop devices.';
+  String get onboardingResponsiveDescription => 'Adaptive navigation that works seamlessly across mobile, tablet, and desktop devices.';
 
   @override
   String get onboardingStateTitle => 'State Management';
 
   @override
-  String get onboardingStateDescription =>
-      'Powered by Riverpod for predictable and scalable state management throughout the application.';
+  String get onboardingStateDescription => 'Powered by Riverpod for predictable and scalable state management throughout the application.';
 
   @override
   String get onboardingFeaturesTitle => 'Ready-to-Use Features';
 
   @override
-  String get onboardingFeaturesDescription =>
-      'Authentication, forms, file uploads, error handling, and more - all ready to customize for your needs.';
+  String get onboardingFeaturesDescription => 'Authentication, forms, file uploads, error handling, and more - all ready to customize for your needs.';
 
   @override
   String get variants => 'Variants';
@@ -872,8 +841,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get documentUploadedSuccessfully => 'Document uploaded successfully!';
 
   @override
-  String get customFileUploadedSuccessfully =>
-      'Custom file uploaded successfully!';
+  String get customFileUploadedSuccessfully => 'Custom file uploaded successfully!';
 
   @override
   String get fileUploadedNoPreview => 'File uploaded (no preview)!';
@@ -888,15 +856,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get imageUpload => 'Image Upload';
 
   @override
-  String get imageUploadDescription =>
-      'Upload image files only (JPG, PNG, GIF, WebP)';
+  String get imageUploadDescription => 'Upload image files only (JPG, PNG, GIF, WebP)';
 
   @override
   String get documentUpload => 'Document Upload';
 
   @override
-  String get documentUploadDescription =>
-      'Upload document files (PDF, DOC, DOCX, TXT)';
+  String get documentUploadDescription => 'Upload document files (PDF, DOC, DOCX, TXT)';
 
   @override
   String get multipleFileUpload => 'Multiple File Upload';
@@ -908,15 +874,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get generalFileUpload => 'General File Upload';
 
   @override
-  String get generalFileUploadDescription =>
-      'Upload any type of file with size limit';
+  String get generalFileUploadDescription => 'Upload any type of file with size limit';
 
   @override
   String get noPreviewUpload => 'No Preview Upload';
 
   @override
-  String get noPreviewUploadDescription =>
-      'File upload without showing selected files';
+  String get noPreviewUploadDescription => 'File upload without showing selected files';
 
   @override
   String get customExtensions => 'Custom Extensions';
@@ -1005,15 +969,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get showErrorSnackbar => 'Show Error SnackBar';
 
   @override
-  String get showErrorSnackbarDescription =>
-      'Shows an error message at the bottom';
+  String get showErrorSnackbarDescription => 'Shows an error message at the bottom';
 
   @override
   String get operationFailed => 'Operation Failed';
 
   @override
-  String get operationFailedMessage =>
-      'The requested operation could not be completed. Please try again.';
+  String get operationFailedMessage => 'The requested operation could not be completed. Please try again.';
 
   @override
   String get changesSavedSuccessfully => 'Changes saved successfully!';
@@ -1025,8 +987,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get asyncErrorDemo => 'Async Error Demo';
 
   @override
-  String get asyncErrorHandlingDescription =>
-      'Handles errors in async operations';
+  String get asyncErrorHandlingDescription => 'Handles errors in async operations';
 
   @override
   String get retryingAsyncOperation => 'Retrying async operation...';
@@ -1038,8 +999,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get featureErrorBoundary => 'Feature Error Boundary';
 
   @override
-  String get featureErrorBoundaryDescription =>
-      'Wraps a feature with error handling';
+  String get featureErrorBoundaryDescription => 'Wraps a feature with error handling';
 
   @override
   String get demoFeature => 'Demo Feature';
@@ -1057,19 +1017,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get reportCustomErrorDescription => 'Demonstrates error reporting';
 
   @override
-  String get errorReportedCheckConsole =>
-      'Error reported! Check debug console.';
+  String get errorReportedCheckConsole => 'Error reported! Check debug console.';
 
   @override
   String get customErrorForDemo => 'Custom error for demonstration';
 
   @override
-  String get simulatedWidgetErrorForDemo =>
-      'Simulated widget error for demonstration';
+  String get simulatedWidgetErrorForDemo => 'Simulated widget error for demonstration';
 
   @override
-  String get socketExceptionFailedHostLookup =>
-      'SocketException: Failed host lookup';
+  String get socketExceptionFailedHostLookup => 'SocketException: Failed host lookup';
 
   @override
   String get redirectingToLogin => 'Redirecting to login...';

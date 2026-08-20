@@ -1,8 +1,6 @@
-// ignore: unused_import
 import 'package:intl/intl.dart' as intl;
-import 'app_localizations.dart';
 
-// ignore_for_file: type=lint
+import 'app_localizations.dart';
 
 /// The translations for Spanish Castilian (`es`).
 class AppLocalizationsEs extends AppLocalizations {
@@ -153,8 +151,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get welcomeTitle => 'Bienvenido a Flutter Starter';
 
   @override
-  String get welcomeSubtitle =>
-      'Una plantilla Material 3 con autenticación,\\ntemas y navegación responsiva';
+  String get welcomeSubtitle => 'Una plantilla Material 3 con autenticación,\\ntemas y navegación responsiva';
 
   @override
   String get uiComponents => 'Componentes de UI';
@@ -172,29 +169,25 @@ class AppLocalizationsEs extends AppLocalizations {
   String get material3Design => 'Diseño Material 3';
 
   @override
-  String get material3Description =>
-      'Construido con el último sistema de Material Design';
+  String get material3Description => 'Construido con el último sistema de Material Design';
 
   @override
   String get dynamicTheming => 'Temas Dinámicos';
 
   @override
-  String get dynamicThemingDescription =>
-      'Elige entre 9 temas de color con soporte para modo oscuro';
+  String get dynamicThemingDescription => 'Elige entre 9 temas de color con soporte para modo oscuro';
 
   @override
   String get responsiveLayout => 'Diseño Responsivo';
 
   @override
-  String get responsiveLayoutDescription =>
-      'Se adapta a pantallas móviles, tablet y escritorio';
+  String get responsiveLayoutDescription => 'Se adapta a pantallas móviles, tablet y escritorio';
 
   @override
   String get authenticationReady => 'Autenticación Lista';
 
   @override
-  String get authenticationDescription =>
-      'Flujos de inicio de sesión y registro incluidos';
+  String get authenticationDescription => 'Flujos de inicio de sesión y registro incluidos';
 
   @override
   String get welcomeBack => 'Bienvenido de Nuevo';
@@ -206,15 +199,13 @@ class AppLocalizationsEs extends AppLocalizations {
   String get pleaseEnterEmail => 'Por favor ingresa tu correo electrónico';
 
   @override
-  String get pleaseEnterValidEmail =>
-      'Por favor ingresa un correo electrónico válido';
+  String get pleaseEnterValidEmail => 'Por favor ingresa un correo electrónico válido';
 
   @override
   String get pleaseEnterPassword => 'Por favor ingresa tu contraseña';
 
   @override
-  String get passwordMustBe6Chars =>
-      'La contraseña debe tener al menos 6 caracteres';
+  String get passwordMustBe6Chars => 'La contraseña debe tener al menos 6 caracteres';
 
   @override
   String get pleaseConfirmPassword => 'Por favor confirma tu contraseña';
@@ -235,15 +226,13 @@ class AppLocalizationsEs extends AppLocalizations {
   String get demoData => 'Demo';
 
   @override
-  String get viewingDemoData =>
-      'Estás viendo datos de demostración en modo invitado. Inicia sesión para ver tu panel real.';
+  String get viewingDemoData => 'Estás viendo datos de demostración en modo invitado. Inicia sesión para ver tu panel real.';
 
   @override
   String get close => 'Cerrar';
 
   @override
-  String get thisDashboardShowsDemo =>
-      'Este panel muestra datos de demostración en modo invitado.';
+  String get thisDashboardShowsDemo => 'Este panel muestra datos de demostración en modo invitado.';
 
   @override
   String get viewRealAnalytics => 'Ver tus datos de análisis reales';
@@ -267,15 +256,13 @@ class AppLocalizationsEs extends AppLocalizations {
   String get recentActivity => 'Actividad Reciente';
 
   @override
-  String get userManagementLimited =>
-      'Las funciones de gestión de usuarios están limitadas en modo invitado.';
+  String get userManagementLimited => 'Las funciones de gestión de usuarios están limitadas en modo invitado.';
 
   @override
   String get addEditDeleteUsers => 'Agregar, editar y eliminar usuarios';
 
   @override
-  String get accessDetailedProfiles =>
-      'Acceder a perfiles detallados de usuarios';
+  String get accessDetailedProfiles => 'Acceder a perfiles detallados de usuarios';
 
   @override
   String get exportUserData => 'Exportar datos de usuarios';
@@ -284,8 +271,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get manageUserPermissions => 'Gestionar permisos de usuarios';
 
   @override
-  String get searchUsers =>
-      'Buscar usuarios por nombre, correo o departamento...';
+  String get searchUsers => 'Buscar usuarios por nombre, correo o departamento...';
 
   @override
   String get addUser => 'Agregar Usuario';
@@ -415,31 +401,25 @@ class AppLocalizationsEs extends AppLocalizations {
   String get markAllAsRead => 'Marcar todas como leídas';
 
   @override
-  String get allNotificationsRead =>
-      'Todas las notificaciones marcadas como leídas';
+  String get allNotificationsRead => 'Todas las notificaciones marcadas como leídas';
 
   @override
-  String get loginToManageNotifications =>
-      'Por favor inicia sesión para gestionar notificaciones';
+  String get loginToManageNotifications => 'Por favor inicia sesión para gestionar notificaciones';
 
   @override
   String get refresh => 'Actualizar';
 
   @override
-  String get demoNotificationsMode =>
-      'Estas son notificaciones de demostración en modo invitado.';
+  String get demoNotificationsMode => 'Estas son notificaciones de demostración en modo invitado.';
 
   @override
-  String get receiveRealTimeNotifications =>
-      'Recibir notificaciones en tiempo real';
+  String get receiveRealTimeNotifications => 'Recibir notificaciones en tiempo real';
 
   @override
-  String get manageNotificationPreferences =>
-      'Gestionar preferencias de notificaciones';
+  String get manageNotificationPreferences => 'Gestionar preferencias de notificaciones';
 
   @override
-  String get markNotificationsReadUnread =>
-      'Marcar notificaciones como leídas/no leídas';
+  String get markNotificationsReadUnread => 'Marcar notificaciones como leídas/no leídas';
 
   @override
   String get getPersonalizedAlerts => 'Obtener alertas personalizadas';
@@ -460,20 +440,16 @@ class AppLocalizationsEs extends AppLocalizations {
   String get yesterday => 'Ayer';
 
   @override
-  String get themeChangeNotSaved =>
-      'Los cambios de tema no se guardarán permanentemente en modo invitado.';
+  String get themeChangeNotSaved => 'Los cambios de tema no se guardarán permanentemente en modo invitado.';
 
   @override
-  String get saveThemePreferences =>
-      'Guardar preferencias de tema permanentemente';
+  String get saveThemePreferences => 'Guardar preferencias de tema permanentemente';
 
   @override
-  String get accessUserManagement =>
-      'Acceder a funciones de gestión de usuarios';
+  String get accessUserManagement => 'Acceder a funciones de gestión de usuarios';
 
   @override
-  String get syncSettingsAcrossDevices =>
-      'Sincronizar configuración entre dispositivos';
+  String get syncSettingsAcrossDevices => 'Sincronizar configuración entre dispositivos';
 
   @override
   String get appearance => 'Apariencia';
@@ -482,8 +458,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get useDarkTheme => 'Usar tema oscuro';
 
   @override
-  String get useDarkThemeNotSaved =>
-      'Usar tema oscuro (no guardado en modo invitado)';
+  String get useDarkThemeNotSaved => 'Usar tema oscuro (no guardado en modo invitado)';
 
   @override
   String get themeColor => 'Color del Tema';
@@ -504,15 +479,13 @@ class AppLocalizationsEs extends AppLocalizations {
   String get material3StarterTemplate => 'Una plantilla starter de Material 3';
 
   @override
-  String get starterFeatures =>
-      'Esta es una plantilla Flutter lista para producción que incluye:\\n\\n• Sistema de diseño Material 3\\n• Temas dinámicos con 9 opciones de color\\n• Navegación responsiva\\n• Flujos de autenticación\\n• Gestión de estado con Riverpod';
+  String get starterFeatures => 'Esta es una plantilla Flutter lista para producción que incluye:\\n\\n• Sistema de diseño Material 3\\n• Temas dinámicos con 9 opciones de color\\n• Navegación responsiva\\n• Flujos de autenticación\\n• Gestión de estado con Riverpod';
 
   @override
   String get guestModeInHome => 'Modo Invitado';
 
   @override
-  String get loginToAccessPersonalization =>
-      'Inicia sesión para acceder a la personalización de temas y otras funciones personalizadas.';
+  String get loginToAccessPersonalization => 'Inicia sesión para acceder a la personalización de temas y otras funciones personalizadas.';
 
   @override
   String get formsExample => 'Ejemplo de Formularios';
@@ -521,44 +494,37 @@ class AppLocalizationsEs extends AppLocalizations {
   String get userRegistrationForm => 'Formulario de Registro de Usuario';
 
   @override
-  String get completeFormDescription =>
-      'Formulario completo con varios tipos de campos y validaciones';
+  String get completeFormDescription => 'Formulario completo con varios tipos de campos y validaciones';
 
   @override
   String get paymentForm => 'Formulario de Pago';
 
   @override
-  String get creditCardFormDescription =>
-      'Formulario de tarjeta de crédito con formato y validación';
+  String get creditCardFormDescription => 'Formulario de tarjeta de crédito con formato y validación';
 
   @override
   String get feedbackForm => 'Formulario de Comentarios';
 
   @override
-  String get ratingFormDescription =>
-      'Formulario con calificación y texto de múltiples líneas';
+  String get ratingFormDescription => 'Formulario con calificación y texto de múltiples líneas';
 
   @override
   String get nameMustBe3Chars => 'El nombre debe tener al menos 3 caracteres';
 
   @override
-  String get pleaseEnterPhoneNumber =>
-      'Por favor ingresa tu número de teléfono';
+  String get pleaseEnterPhoneNumber => 'Por favor ingresa tu número de teléfono';
 
   @override
-  String get pleaseEnterValidPhoneNumber =>
-      'Por favor ingresa un número de teléfono válido';
+  String get pleaseEnterValidPhoneNumber => 'Por favor ingresa un número de teléfono válido';
 
   @override
   String get gender => 'Género';
 
   @override
-  String get passwordMustBe8Chars =>
-      'La contraseña debe tener al menos 8 caracteres';
+  String get passwordMustBe8Chars => 'La contraseña debe tener al menos 8 caracteres';
 
   @override
-  String get passwordComplexityRequired =>
-      'La contraseña debe contener mayúsculas, minúsculas y números';
+  String get passwordComplexityRequired => 'La contraseña debe contener mayúsculas, minúsculas y números';
 
   @override
   String get interests => 'Intereses';
@@ -573,15 +539,13 @@ class AppLocalizationsEs extends AppLocalizations {
   String get pleaseEnterCardNumber => 'Por favor ingresa el número de tarjeta';
 
   @override
-  String get cardNumberMustBe16Digits =>
-      'El número de tarjeta debe tener 16 dígitos';
+  String get cardNumberMustBe16Digits => 'El número de tarjeta debe tener 16 dígitos';
 
   @override
   String get cardHolderName => 'Nombre del Titular';
 
   @override
-  String get pleaseEnterCardHolderName =>
-      'Por favor ingresa el nombre del titular';
+  String get pleaseEnterCardHolderName => 'Por favor ingresa el nombre del titular';
 
   @override
   String get expiryDate => 'Fecha de Vencimiento';
@@ -620,8 +584,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get pleaseEnterFeedback => 'Por favor ingresa tus comentarios';
 
   @override
-  String get feedbackMustBe10Chars =>
-      'Los comentarios deben tener al menos 10 caracteres';
+  String get feedbackMustBe10Chars => 'Los comentarios deben tener al menos 10 caracteres';
 
   @override
   String get submitFeedback => 'Enviar Comentarios';
@@ -690,12 +653,10 @@ class AppLocalizationsEs extends AppLocalizations {
   String get avatars => 'Avatares';
 
   @override
-  String get sampleCardContent =>
-      'Este es contenido de muestra dentro de la tarjeta.';
+  String get sampleCardContent => 'Este es contenido de muestra dentro de la tarjeta.';
 
   @override
-  String get browsingAsGuest =>
-      'Estás navegando como invitado con funciones limitadas.';
+  String get browsingAsGuest => 'Estás navegando como invitado con funciones limitadas.';
 
   @override
   String get loginToUnlock => 'Inicia sesión para desbloquear:';
@@ -722,36 +683,31 @@ class AppLocalizationsEs extends AppLocalizations {
   String get pageNotFound => '404 - Página No Encontrada';
 
   @override
-  String get pageNotFoundDescription =>
-      'La página que buscas no existe o ha sido movida.';
+  String get pageNotFoundDescription => 'La página que buscas no existe o ha sido movida.';
 
   @override
   String get serverError => '500 - Error del Servidor';
 
   @override
-  String get serverErrorDescription =>
-      'Algo salió mal de nuestro lado. Por favor intenta de nuevo más tarde.';
+  String get serverErrorDescription => 'Algo salió mal de nuestro lado. Por favor intenta de nuevo más tarde.';
 
   @override
   String get networkError => 'Error de Red';
 
   @override
-  String get networkErrorDescription =>
-      'Por favor verifica tu conexión a internet e intenta de nuevo.';
+  String get networkErrorDescription => 'Por favor verifica tu conexión a internet e intenta de nuevo.';
 
   @override
   String get unauthorized => '401 - No Autorizado';
 
   @override
-  String get unauthorizedDescription =>
-      'No tienes permiso para acceder a este recurso.';
+  String get unauthorizedDescription => 'No tienes permiso para acceder a este recurso.';
 
   @override
   String get somethingWentWrong => 'Algo salió mal';
 
   @override
-  String get unexpectedError =>
-      'Ocurrió un error inesperado. Por favor intenta de nuevo.';
+  String get unexpectedError => 'Ocurrió un error inesperado. Por favor intenta de nuevo.';
 
   @override
   String get orClickToBrowse => 'o haz clic para navegar';
@@ -771,12 +727,10 @@ class AppLocalizationsEs extends AppLocalizations {
   String get dropDocumentFiles => 'Arrastra archivos de documento aquí';
 
   @override
-  String get dropImageFilesWithFormats =>
-      'Arrastra archivos de imagen aquí\\n(JPG, PNG, GIF, WebP)';
+  String get dropImageFilesWithFormats => 'Arrastra archivos de imagen aquí\\n(JPG, PNG, GIF, WebP)';
 
   @override
-  String get dropDocumentFilesWithFormats =>
-      'Arrastra archivos de documento aquí\\n(PDF, DOC, DOCX, TXT)';
+  String get dropDocumentFilesWithFormats => 'Arrastra archivos de documento aquí\\n(PDF, DOC, DOCX, TXT)';
 
   @override
   String get skip => 'Omitir';
@@ -794,36 +748,31 @@ class AppLocalizationsEs extends AppLocalizations {
   String get welcomeToFlutterStarter => 'Bienvenido a Flutter Starter';
 
   @override
-  String get onboardingWelcomeDescription =>
-      'Una plantilla Material 3 lista para producción con autenticación, temas y navegación responsiva.';
+  String get onboardingWelcomeDescription => 'Una plantilla Material 3 lista para producción con autenticación, temas y navegación responsiva.';
 
   @override
   String get onboardingMaterial3Title => 'Diseño Material 3';
 
   @override
-  String get onboardingMaterial3Description =>
-      'Construido con el último sistema de Material Design con temas de color dinámicos y componentes modernos.';
+  String get onboardingMaterial3Description => 'Construido con el último sistema de Material Design con temas de color dinámicos y componentes modernos.';
 
   @override
   String get onboardingResponsiveTitle => 'Navegación Responsiva';
 
   @override
-  String get onboardingResponsiveDescription =>
-      'Navegación adaptativa que funciona perfectamente en dispositivos móviles, tablet y escritorio.';
+  String get onboardingResponsiveDescription => 'Navegación adaptativa que funciona perfectamente en dispositivos móviles, tablet y escritorio.';
 
   @override
   String get onboardingStateTitle => 'Gestión de Estado';
 
   @override
-  String get onboardingStateDescription =>
-      'Powered by Riverpod para gestión de estado predecible y escalable en toda la aplicación.';
+  String get onboardingStateDescription => 'Powered by Riverpod para gestión de estado predecible y escalable en toda la aplicación.';
 
   @override
   String get onboardingFeaturesTitle => 'Funciones Listas para Usar';
 
   @override
-  String get onboardingFeaturesDescription =>
-      'Autenticación, formularios, subida de archivos, manejo de errores y más, todo listo para personalizar según tus necesidades.';
+  String get onboardingFeaturesDescription => 'Autenticación, formularios, subida de archivos, manejo de errores y más, todo listo para personalizar según tus necesidades.';
 
   @override
   String get variants => 'Variantes';
@@ -892,8 +841,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get documentUploadedSuccessfully => '¡Documento subido exitosamente!';
 
   @override
-  String get customFileUploadedSuccessfully =>
-      '¡Archivo personalizado subido exitosamente!';
+  String get customFileUploadedSuccessfully => '¡Archivo personalizado subido exitosamente!';
 
   @override
   String get fileUploadedNoPreview => '¡Archivo subido (sin vista previa)!';
@@ -908,50 +856,43 @@ class AppLocalizationsEs extends AppLocalizations {
   String get imageUpload => 'Subida de Imágenes';
 
   @override
-  String get imageUploadDescription =>
-      'Sube solo archivos de imagen (JPG, PNG, GIF, WebP)';
+  String get imageUploadDescription => 'Sube solo archivos de imagen (JPG, PNG, GIF, WebP)';
 
   @override
   String get documentUpload => 'Subida de Documentos';
 
   @override
-  String get documentUploadDescription =>
-      'Sube archivos de documentos (PDF, DOC, DOCX, TXT)';
+  String get documentUploadDescription => 'Sube archivos de documentos (PDF, DOC, DOCX, TXT)';
 
   @override
   String get multipleFileUpload => 'Subida de Múltiples Archivos';
 
   @override
-  String get multipleFileUploadDescription =>
-      'Sube múltiples archivos a la vez';
+  String get multipleFileUploadDescription => 'Sube múltiples archivos a la vez';
 
   @override
   String get generalFileUpload => 'Subida General de Archivos';
 
   @override
-  String get generalFileUploadDescription =>
-      'Sube cualquier tipo de archivo con límite de tamaño';
+  String get generalFileUploadDescription => 'Sube cualquier tipo de archivo con límite de tamaño';
 
   @override
   String get noPreviewUpload => 'Subida sin Vista Previa';
 
   @override
-  String get noPreviewUploadDescription =>
-      'Subida de archivos sin mostrar archivos seleccionados';
+  String get noPreviewUploadDescription => 'Subida de archivos sin mostrar archivos seleccionados';
 
   @override
   String get customExtensions => 'Extensiones Personalizadas';
 
   @override
-  String get customExtensionsDescription =>
-      'Sube solo tipos de archivos específicos';
+  String get customExtensionsDescription => 'Sube solo tipos de archivos específicos';
 
   @override
   String get dropAnyFileHere => 'Suelta cualquier archivo aquí (máx 5MB)';
 
   @override
-  String get dropMultipleFilesHere =>
-      'Suelta múltiples archivos aquí (máx 2MB cada uno)';
+  String get dropMultipleFilesHere => 'Suelta múltiples archivos aquí (máx 2MB cada uno)';
 
   @override
   String get dropJSONXMLCSVFiles => 'Suelta archivos JSON, XML o CSV aquí';
@@ -1004,22 +945,19 @@ class AppLocalizationsEs extends AppLocalizations {
   String get networkErrorMessage => 'Mensaje de Error de Red';
 
   @override
-  String get networkErrorMessageDescription =>
-      'Muestra el manejo de errores de red';
+  String get networkErrorMessageDescription => 'Muestra el manejo de errores de red';
 
   @override
   String get unauthorizedError => 'Error No Autorizado';
 
   @override
-  String get unauthorizedErrorDescription =>
-      'Muestra un error de autenticación';
+  String get unauthorizedErrorDescription => 'Muestra un error de autenticación';
 
   @override
   String get apiErrorMessage => 'Mensaje de Error de API';
 
   @override
-  String get apiErrorMessageDescription =>
-      'Muestra el manejo de errores de API';
+  String get apiErrorMessageDescription => 'Muestra el manejo de errores de API';
 
   @override
   String get showErrorDialog => 'Mostrar Diálogo de Error';
@@ -1031,15 +969,13 @@ class AppLocalizationsEs extends AppLocalizations {
   String get showErrorSnackbar => 'Mostrar SnackBar de Error';
 
   @override
-  String get showErrorSnackbarDescription =>
-      'Muestra un mensaje de error en la parte inferior';
+  String get showErrorSnackbarDescription => 'Muestra un mensaje de error en la parte inferior';
 
   @override
   String get operationFailed => 'Operación Fallida';
 
   @override
-  String get operationFailedMessage =>
-      'La operación solicitada no pudo completarse. Por favor, inténtalo de nuevo.';
+  String get operationFailedMessage => 'La operación solicitada no pudo completarse. Por favor, inténtalo de nuevo.';
 
   @override
   String get changesSavedSuccessfully => '¡Cambios guardados exitosamente!';
@@ -1051,8 +987,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get asyncErrorDemo => 'Demo de Error Asíncrono';
 
   @override
-  String get asyncErrorHandlingDescription =>
-      'Maneja errores en operaciones asíncronas';
+  String get asyncErrorHandlingDescription => 'Maneja errores en operaciones asíncronas';
 
   @override
   String get retryingAsyncOperation => 'Reintentando operación asíncrona...';
@@ -1064,8 +999,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get featureErrorBoundary => 'Límite de Error de Funcionalidad';
 
   @override
-  String get featureErrorBoundaryDescription =>
-      'Envuelve una funcionalidad con manejo de errores';
+  String get featureErrorBoundaryDescription => 'Envuelve una funcionalidad con manejo de errores';
 
   @override
   String get demoFeature => 'Funcionalidad Demo';
@@ -1083,19 +1017,16 @@ class AppLocalizationsEs extends AppLocalizations {
   String get reportCustomErrorDescription => 'Demuestra el reporte de errores';
 
   @override
-  String get errorReportedCheckConsole =>
-      '¡Error reportado! Verifica la consola de depuración.';
+  String get errorReportedCheckConsole => '¡Error reportado! Verifica la consola de depuración.';
 
   @override
   String get customErrorForDemo => 'Error personalizado para demostración';
 
   @override
-  String get simulatedWidgetErrorForDemo =>
-      'Error simulado de widget para demostración';
+  String get simulatedWidgetErrorForDemo => 'Error simulado de widget para demostración';
 
   @override
-  String get socketExceptionFailedHostLookup =>
-      'SocketException: Búsqueda de host fallida';
+  String get socketExceptionFailedHostLookup => 'SocketException: Búsqueda de host fallida';
 
   @override
   String get redirectingToLogin => 'Redirigiendo al login...';
