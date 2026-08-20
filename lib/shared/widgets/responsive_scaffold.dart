@@ -4,16 +4,16 @@ import 'package:go_router/go_router.dart';
 import '../../core/constants/breakpoints.dart';
 import '../../l10n/app_localizations.dart';
 
-class ResponsiveScaffold extends ConsumerStatefulWidget {
+class ResponsiveScaffold extends StatefulWidget {
   final Widget child;
   
   const ResponsiveScaffold({required this.child, super.key});
 
   @override
-  ConsumerState<ResponsiveScaffold> createState() => _ResponsiveScaffoldState();
+  State<ResponsiveScaffold> createState() => _ResponsiveScaffoldState();
 }
 
-class _ResponsiveScaffoldState extends ConsumerState<ResponsiveScaffold> 
+class _ResponsiveScaffoldState extends State<ResponsiveScaffold> 
     with TickerProviderStateMixin {
   late AnimationController _controller;
   late CurvedAnimation _railAnimation;
