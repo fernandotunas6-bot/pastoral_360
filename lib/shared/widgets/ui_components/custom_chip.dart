@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 
 enum ChipVariant { filled, outlined, suggestion, filter }
 enum ChipSize { small, medium, large }
@@ -41,7 +40,7 @@ class CustomChip extends StatelessWidget {
           onPressed: onPressed,
           backgroundColor: selected 
               ? color ?? theme.colorScheme.primary
-              : color ?? theme.colorScheme.surfaceContainerHighest,
+              : color ?? theme.colorScheme.surfaceVariant,
           labelStyle: TextStyle(
             fontSize: _getFontSize(),
             color: selected 
@@ -86,9 +85,7 @@ class CustomChip extends StatelessWidget {
           label: Text(label),
           avatar: avatar,
           selected: selected,
-          onSelected: onPressed != null ? (value) => onPressed!() : null,
-          deleteIcon: deleteIcon,
-          onDeleted: onDeleted,
+          onSelected: onPressed != null ? (value) => onPressed!() : (val) {},
           backgroundColor: theme.colorScheme.surface,
           selectedColor: color ?? theme.colorScheme.primaryContainer,
           checkmarkColor: theme.colorScheme.onPrimaryContainer,
@@ -99,16 +96,6 @@ class CustomChip extends StatelessWidget {
           visualDensity: _getVisualDensity(),
         ),
     };
-    
-    if (animate) {
-      return chip.animate()
-        .scale(
-          begin: const Offset(0.8, 0.8),
-          end: const Offset(1.0, 1.0),
-          duration: 200.ms,
-          curve: Curves.easeOut,
-        );
-    }
     
     return chip;
   }
@@ -135,33 +122,5 @@ class CustomChip extends StatelessWidget {
       ChipSize.medium => VisualDensity.comfortable,
       ChipSize.large => VisualDensity.standard,
     };
-  }
-}
-
-class ChipGroup extends StatelessWidget {
-  final List<CustomChip> chips;
-  final double spacing;
-  final double runSpacing;
-  final WrapAlignment alignment;
-  final WrapAlignment runAlignment;
-  
-  const ChipGroup({
-    super.key,
-    required this.chips,
-    this.spacing = 8.0,
-    this.runSpacing = 8.0,
-    this.alignment = WrapAlignment.start,
-    this.runAlignment = WrapAlignment.start,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Wrap(
-      spacing: spacing,
-      runSpacing: runSpacing,
-      alignment: alignment,
-      runAlignment: runAlignment,
-      children: chips,
-    );
   }
 }

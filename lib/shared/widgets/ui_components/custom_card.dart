@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 
 enum CardVariant { elevated, filled, outlined }
 
@@ -45,17 +44,6 @@ class CustomCard extends StatelessWidget {
       );
     }
     
-    if (animate) {
-      return card.animate()
-        .fadeIn(duration: 300.ms)
-        .scale(
-          begin: const Offset(0.95, 0.95),
-          end: const Offset(1.0, 1.0),
-          duration: 300.ms,
-          curve: Curves.easeOut,
-        );
-    }
-    
     return card;
   }
   
@@ -66,14 +54,14 @@ class CustomCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              color: theme.colorScheme.shadow.withValues(alpha: 0.1),
+              color: theme.colorScheme.shadow.withOpacity(0.1),
               blurRadius: 8,
               offset: const Offset(0, 2),
             ),
           ],
         ),
       CardVariant.filled => BoxDecoration(
-          color: color ?? theme.colorScheme.surfaceContainerHighest,
+          color: color ?? theme.colorScheme.surfaceVariant,
           borderRadius: BorderRadius.circular(12),
         ),
       CardVariant.outlined => BoxDecoration(

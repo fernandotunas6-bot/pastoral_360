@@ -98,7 +98,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       counterText: widget.showCounter ? null : '',
       filled: widget.variant == TextFieldVariant.filled,
       fillColor: widget.variant == TextFieldVariant.filled
-          ? theme.colorScheme.surfaceContainerHighest
+          ? theme.colorScheme.surfaceVariant
           : null,
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(12),
@@ -141,7 +141,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         boxShadow: _isFocused && widget.variant == TextFieldVariant.outlined
             ? [
                 BoxShadow(
-                  color: theme.colorScheme.primary.withValues(alpha: 0.1),
+                  color: theme.colorScheme.primary.withOpacity(0.1),
                   blurRadius: 8,
                   offset: const Offset(0, 2),
                 ),
@@ -165,100 +165,6 @@ class _CustomTextFieldState extends State<CustomTextField> {
         validator: widget.validator,
         decoration: decoration,
       ),
-    );
-  }
-}
-
-// Preset text fields for common use cases
-class EmailTextField extends StatelessWidget {
-  final TextEditingController? controller;
-  final String? Function(String?)? validator;
-  final ValueChanged<String>? onChanged;
-  final String? errorText;
-  
-  const EmailTextField({
-    super.key,
-    this.controller,
-    this.validator,
-    this.onChanged,
-    this.errorText,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return CustomTextField(
-      controller: controller,
-      label: 'Email',
-      hint: 'Enter your email',
-      prefixIcon: const Icon(Icons.email_outlined),
-      keyboardType: TextInputType.emailAddress,
-      textInputAction: TextInputAction.next,
-      errorText: errorText,
-      onChanged: onChanged,
-      validator: validator ?? (value) {
-        if (value == null || value.isEmpty) {
-          return 'Please enter your email';
-        }
-        if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
-          return 'Please enter a valid email';
-        }
-        return null;
-      },
-    );
-  }
-}
-
-class PasswordTextField extends StatefulWidget {
-  final TextEditingController? controller;
-  final String? Function(String?)? validator;
-  final ValueChanged<String>? onChanged;
-  final String? errorText;
-  final String label;
-  
-  const PasswordTextField({
-    super.key,
-    this.controller,
-    this.validator,
-    this.onChanged,
-    this.errorText,
-    this.label = 'Password',
-  });
-
-  @override
-  State<PasswordTextField> createState() => _PasswordTextFieldState();
-}
-
-class _PasswordTextFieldState extends State<PasswordTextField> {
-  bool _obscureText = true;
-
-  @override
-  Widget build(BuildContext context) {
-    return CustomTextField(
-      controller: widget.controller,
-      label: widget.label,
-      hint: 'Enter your password',
-      prefixIcon: const Icon(Icons.lock_outline),
-      obscureText: _obscureText,
-      textInputAction: TextInputAction.done,
-      errorText: widget.errorText,
-      onChanged: widget.onChanged,
-      suffixIcon: IconButton(
-        icon: Icon(_obscureText ? Icons.visibility : Icons.visibility_off),
-        onPressed: () {
-          setState(() {
-            _obscureText = !_obscureText;
-          });
-        },
-      ),
-      validator: widget.validator ?? (value) {
-        if (value == null || value.isEmpty) {
-          return 'Please enter your password';
-        }
-        if (value.length < 6) {
-          return 'Password must be at least 6 characters';
-        }
-        return null;
-      },
     );
   }
 }

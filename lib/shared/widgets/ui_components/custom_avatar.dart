@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import '../../../core/error/error_handler.dart';
 
 enum AvatarSize { small, medium, large, extraLarge }
 enum AvatarShape { circle, rounded }
@@ -79,27 +77,11 @@ class CustomAvatar extends StatelessWidget {
   }
   
   Widget _buildContent(ThemeData theme, double fontSize) {
-    if (imageUrl != null) {
-      return CachedNetworkImage(
-        imageUrl: imageUrl!,
+    if (imageUrl != null && imageUrl!.isNotEmpty) {
+      return Image.network(
+        imageUrl!,
         fit: BoxFit.cover,
-        placeholder: (context, url) => Center(
-          child: CircularProgressIndicator(
-            strokeWidth: 2,
-            valueColor: AlwaysStoppedAnimation<Color>(
-              theme.colorScheme.primary,
-            ),
-          ),
-        ),
-        errorWidget: (context, url, error) {
-          // Use enhanced error reporting
-          GlobalErrorHandler.reportImageError(
-            imageUrl: url,
-            error: error,
-            additionalContext: 'CustomAvatar widget',
-          );
-          return _buildFallback(theme, fontSize);
-        },
+        errorBuilder: (context, error, stackTrace) => _buildFallback(theme, fontSize),
       );
     }
     
@@ -188,84 +170,5 @@ class CustomAvatar extends StatelessWidget {
     
     final hash = name.hashCode;
     return colors[hash.abs() % colors.length];
-  }
-}
-
-class AvatarGroup extends StatelessWidget {
-  final List<CustomAvatar> avatars;
-  final int maxDisplay;
-  final double overlap;
-  final AvatarSize size;
-  
-  const AvatarGroup({
-    super.key,
-    required this.avatars,
-    this.maxDisplay = 4,
-    this.overlap = 0.3,
-    this.size = AvatarSize.small,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final displayAvatars = avatars.take(maxDisplay).toList();
-    final remaining = avatars.length - maxDisplay;
-    final radius = switch (size) {
-      AvatarSize.small => 16.0,
-      AvatarSize.medium => 24.0,
-      AvatarSize.large => 40.0,
-      AvatarSize.extraLarge => 60.0,
-    };
-    
-    return SizedBox(
-      height: radius * 2,
-      child: Stack(
-        children: [
-          ...displayAvatars.asMap().entries.map((entry) {
-            final index = entry.key;
-            final avatar = entry.value;
-            
-            return Positioned(
-              left: index * (radius * 2 * (1 - overlap)),
-              child: Container(
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(
-                    color: theme.colorScheme.surface,
-                    width: 2,
-                  ),
-                ),
-                child: avatar,
-              ),
-            );
-          }),
-          if (remaining > 0)
-            Positioned(
-              left: displayAvatars.length * (radius * 2 * (1 - overlap)),
-              child: Container(
-                width: radius * 2,
-                height: radius * 2,
-                decoration: BoxDecoration(
-                  color: theme.colorScheme.surfaceContainerHighest,
-                  shape: BoxShape.circle,
-                  border: Border.all(
-                    color: theme.colorScheme.surface,
-                    width: 2,
-                  ),
-                ),
-                child: Center(
-                  child: Text(
-                    '+$remaining',
-                    style: TextStyle(
-                      fontSize: radius * 0.6,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-        ],
-      ),
-    );
   }
 }
