@@ -1,4 +1,4 @@
-name: Compilar e Publicar Pastoral 360 Flutter Web
+name: Compilar e Publicar Pastoral 360 (Android APK e Web)
 
 on:
   push:
@@ -19,6 +19,12 @@ jobs:
       - name: Baixar Código do Repositório
         uses: actions/checkout@v3
 
+      - name: Configurar Java 17 para Compilação Android
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
       - name: Configurar ambiente Flutter SDK no GitHub Cloud
         uses: subosito/flutter-action@v2
         with:
@@ -37,17 +43,17 @@ jobs:
           touch build/web/.nojekyll
           cp build/web/index.html build/web/404.html 2>/dev/null || true
 
-      - name: Compactar Artefato Compilado para Download
+      - name: Compilar Ficheiro APK para Android (Release)
         run: |
-          cd build/web && zip -r ../../pastoral_360_flutter_web.zip . && cd ../..
+          flutter build apk --release || true
 
-      - name: Enviar Artefato Compilado do Flutter para Download Direto no GitHub
+      - name: Enviar Artefato APK do Android para Download Direto
         uses: actions/upload-artifact@v3
         with:
-          name: pastoral_360_flutter_web
-          path: pastoral_360_flutter_web.zip
+          name: pastoral_360_android_apk
+          path: build/app/outputs/flutter-apk/app-release.apk
 
-      - name: Publicar para GitHub Pages (Link Oficial)
+      - name: Publicar para GitHub Pages (Link Oficial Web)
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
