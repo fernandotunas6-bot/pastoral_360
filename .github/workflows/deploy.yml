@@ -19,7 +19,7 @@ jobs:
       - name: Baixar Código do Repositório
         uses: actions/checkout@v3
 
-      - name: Configurar ambiente Flutter SDK
+      - name: Configurar ambiente Flutter SDK no GitHub Cloud
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.19.6'
@@ -35,7 +35,17 @@ jobs:
           mkdir -p build/web
           cp -r web/* build/web/ 2>/dev/null || true
 
-      - name: Publicar para GitHub Pages
+      - name: Compactar Artefato Compilado para Download
+        run: |
+          cd build/web && zip -r ../../pastoral_360_flutter_web.zip . && cd ../..
+
+      - name: Enviar Artefato Compilado do Flutter para Download Direto no GitHub
+        uses: actions/upload-artifact@v3
+        with:
+          name: pastoral_360_flutter_web
+          path: pastoral_360_flutter_web.zip
+
+      - name: Publicar para GitHub Pages (Link Oficial)
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
