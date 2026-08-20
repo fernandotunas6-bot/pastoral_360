@@ -8,7 +8,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="app.css">
-  <!-- Clerk JS SDK for Free Auth -->
   <script async crossorigin="anonymous" data-clerk-publishable-key="pk_test_bGl2ZS1tb25rZXktOTQuY2xlcmsuYWNjb3VudHMuZGV2JA" src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js" type="text/javascript"></script>
 </head>
 <body class="dark-mode">
@@ -81,6 +80,10 @@
           <span class="icon-pill">📞</span>
           <span>Contactos</span>
         </button>
+        <button class="m3-nav-item" data-tab="tab-audit">
+          <span class="icon-pill">🛡️</span>
+          <span>Auditoria & Logs</span>
+        </button>
         <button class="m3-nav-item" data-tab="tab-settings">
           <span class="icon-pill">⚙️</span>
           <span>Configurações</span>
@@ -115,7 +118,7 @@
 
       <!-- Main Body Content -->
       <div class="m3-body-content">
-        <!-- 0. LOGIN PAGE (STARTER APP STYLE WITH CLERK AUTH) -->
+        <!-- 0. LOGIN PAGE -->
         <section id="tab-login" class="tab-pane">
           <div class="m3-login-screen">
             <div class="m3-login-card">
@@ -408,7 +411,43 @@
           </div>
         </section>
 
-        <!-- 9. SETTINGS -->
+        <!-- 9. AUDIT LOGS -->
+        <section id="tab-audit" class="tab-pane">
+          <div class="m3-card">
+            <div class="m3-card-header">
+              <h3>🛡️ Histórico de Auditoria & Sincronização Supabase</h3>
+            </div>
+            <table class="m3-table">
+              <thead>
+                <tr>
+                  <th>Data/Hora</th>
+                  <th>Utilizador</th>
+                  <th>Acção</th>
+                  <th>Detalhes</th>
+                  <th>Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>20/08/2026 12:28</td>
+                  <td>Pr. Valentino Canguele</td>
+                  <td>Sincronização Excel ➔ Supabase</td>
+                  <td>100 Pastores & 330 Congregações Sincronizados</td>
+                  <td><span class="m3-chip" style="background-color: #10B981; color: #FFF;">SUCESSO</span></td>
+                </tr>
+                <tr>
+                  <td>20/08/2026 12:22</td>
+                  <td>Ancião Central</td>
+                  <td>Avaliação Mobile Submetida</td>
+                  <td>Pastor #1 (Pr. Enoque Paulino) Avaliado</td>
+                  <td><span class="m3-chip" style="background-color: #10B981; color: #FFF;">SUCESSO</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 10. SETTINGS -->
         <section id="tab-settings" class="tab-pane">
           <div class="m3-card">
             <h3>⚙️ Sincronização Supabase Cloud & Excel Mestre</h3>
