@@ -1,0 +1,281 @@
+[
+  {
+    "cn": "001",
+    "nome": "Central Huambo",
+    "distrito": "Distrito Centro",
+    "municipio": "Huambo",
+    "provincia": "Huambo",
+    "delegado": "Tyindongo Ndjimbo",
+    "data_congresso": "11-13-SET"
+  },
+  {
+    "cn": "002",
+    "nome": "Lossambo",
+    "distrito": "Distrito Centro",
+    "municipio": "Huambo",
+    "provincia": "Huambo",
+    "delegado": "Rodrigues Kambanji",
+    "data_congresso": "11-13-SET"
+  },
+  {
+    "cn": "003",
+    "nome": "Novo Templo",
+    "distrito": "Distrito Centro",
+    "municipio": "Huambo",
+    "provincia": "Huambo",
+    "delegado": "Enoque Paulino",
+    "data_congresso": "11-13-SET"
+  },
+  {
+    "cn": "004",
+    "nome": "Universitária",
+    "distrito": "Distrito Centro",
+    "municipio": "Huambo",
+    "provincia": "Huambo",
+    "delegado": "Caquinda Restino",
+    "data_congresso": "11-13-SET"
+  },
+  {
+    "cn": "005",
+    "nome": "Alfa",
+    "distrito": "Benfica Norte",
+    "municipio": "Huambo",
+    "provincia": "Huambo",
+    "delegado": "Pr. Lauriano Salote",
+    "data_congresso": "11-13-SET"
+  },
+  {
+    "cn": "006",
+    "nome": "Listra",
+    "distrito": "Benfica Norte",
+    "municipio": "Huambo",
+    "provincia": "Huambo",
+    "delegado": "Ancião Sabino Leo Sankulo",
+    "data_congresso": "11-13-SET"
+  },
+  {
+    "cn": "007",
+    "nome": "Ómega",
+    "distrito": "Benfica Norte",
+    "municipio": "Huambo",
+    "provincia": "Huambo",
+    "delegado": "Pr. Madureira Chiwissi",
+    "data_congresso": "11-13-SET"
+  },
+  {
+    "cn": "008",
+    "nome": "Smirna",
+    "distrito": "Benfica Norte",
+    "municipio": "Huambo",
+    "provincia": "Huambo",
+    "delegado": "Pr. Isaias Sabonete",
+    "data_congresso": "11-13-SET"
+  },
+  {
+    "cn": "009",
+    "nome": "Betel",
+    "distrito": "Benfica Sul",
+    "municipio": "Huambo",
+    "provincia": "Huambo",
+    "delegado": "Pr. Ermenegildo Sacanjala",
+    "data_congresso": "11-13-SET"
+  },
+  {
+    "cn": "010",
+    "nome": "Brigada",
+    "distrito": "Benfica Sul",
+    "municipio": "Huambo",
+    "provincia": "Huambo",
+    "delegado": "Pr. Eduardo Masculino",
+    "data_congresso": "11-13-SET"
+  },
+  {
+    "cn": "011",
+    "nome": "Ebenezer – Conferencias",
+    "distrito": "Benfica Sul",
+    "municipio": "Huambo",
+    "provincia": "Huambo",
+    "delegado": "Pr. Vasco Arlindo Batista",
+    "data_congresso": "20-26-SET"
+  },
+  {
+    "cn": "012",
+    "nome": "Filadélfia",
+    "distrito": "Benfica Sul",
+    "municipio": "Huambo",
+    "provincia": "Huambo",
+    "delegado": "Pr. Adriano Delfin Feka",
+    "data_congresso": "11-13-SET"
+  },
+  {
+    "cn": "013",
+    "nome": "Jerusalém",
+    "distrito": "Benfica Sul",
+    "municipio": "Huambo",
+    "provincia": "Huambo",
+    "delegado": "Pr. Figueiredo Caculo",
+    "data_congresso": "11-13-SET"
+  },
+  {
+    "cn": "014",
+    "nome": "Nazaré",
+    "distrito": "Benfica Sul",
+    "municipio": "Huambo",
+    "provincia": "Huambo",
+    "delegado": "Pr. Teodoro Cussumua",
+    "data_congresso": "11-13-SET"
+  },
+  {
+    "cn": "015",
+    "nome": "Bereia Calute",
+    "distrito": "Benfica Sul",
+    "municipio": "Huambo",
+    "provincia": "Huambo",
+    "delegado": "Pr. Valentino Canguele",
+    "data_congresso": "11-13-SET"
+  },
+  {
+    "cn": "016",
+    "nome": "Canaã Lisíssimo",
+    "distrito": "Calomanda",
+    "municipio": "Huambo",
+    "provincia": "Huambo",
+    "delegado": "Pr. Bonefácio Manuel Chiombe",
+    "data_congresso": "11-13-SET"
+  },
+  {
+    "cn": "017",
+    "nome": "Cristo Rei-Aviação",
+    "distrito": "Calomanda",
+    "municipio": "Huambo",
+    "provincia": "Huambo",
+    "delegado": "Pr. Evaristo Chipopa",
+    "data_congresso": "11-13-SET"
+  },
+  {
+    "cn": "018",
+    "nome": "Gerezim",
+    "distrito": "Calomanda",
+    "municipio": "Huambo",
+    "provincia": "Huambo",
+    "delegado": "Pr. Galvão Vasco Chalale",
+    "data_congresso": "11-13-SET"
+  },
+  {
+    "cn": "019",
+    "nome": "Gozem, Canaã e Galileia",
+    "distrito": "Calomanda",
+    "municipio": "Huambo",
+    "provincia": "Huambo",
+    "delegado": "Pr. Gregório Henriques",
+    "data_congresso": "11-13-SET"
+  },
+  {
+    "cn": "020",
+    "nome": "Monte Horebe",
+    "distrito": "Calomanda",
+    "municipio": "Huambo",
+    "provincia": "Huambo",
+    "delegado": "Pr. Francisco Fela",
+    "data_congresso": "11-13-SET"
+  },
+  {
+    "cn": "080",
+    "nome": "Canaã",
+    "distrito": "Centro da Caála",
+    "municipio": "Caála",
+    "provincia": "Huambo",
+    "delegado": "Pr. Manuel Nunda Bongue",
+    "data_congresso": "4-6-SET"
+  },
+  {
+    "cn": "081",
+    "nome": "Central Caála",
+    "distrito": "Centro da Caála",
+    "municipio": "Caála",
+    "provincia": "Huambo",
+    "delegado": "Pr. Antunes Bastos",
+    "data_congresso": "4-6-SET"
+  },
+  {
+    "cn": "082",
+    "nome": "Filadelfia e Ebenezer",
+    "distrito": "Centro da Caála",
+    "municipio": "Caála",
+    "provincia": "Huambo",
+    "delegado": "Pr. Nelito Jaime",
+    "data_congresso": "4-6-SET"
+  },
+  {
+    "cn": "083",
+    "nome": "Macedónia - Mussili",
+    "distrito": "Centro da Caála",
+    "municipio": "Caála",
+    "provincia": "Huambo",
+    "delegado": "Pr. Silva Moisés Joaquim",
+    "data_congresso": "4-6-SET"
+  },
+  {
+    "cn": "250",
+    "nome": "Central Cuito",
+    "distrito": "Distrito Centro",
+    "municipio": "Cuito",
+    "provincia": "Bié",
+    "delegado": "Pr. Enoque Paulino",
+    "data_congresso": "10-12-JUL"
+  },
+  {
+    "cn": "251",
+    "nome": "Manancial Cuito",
+    "distrito": "Distrito Centro",
+    "municipio": "Cuito",
+    "provincia": "Bié",
+    "delegado": "Pr. Adriano Delfim Feka",
+    "data_congresso": "10-12-JUL"
+  },
+  {
+    "cn": "252",
+    "nome": "Monte Sinai Cuito",
+    "distrito": "Distrito Centro",
+    "municipio": "Cuito",
+    "provincia": "Bié",
+    "delegado": "Pr. António Bambi",
+    "data_congresso": "10-12-JUL"
+  },
+  {
+    "cn": "274",
+    "nome": "Central Chinguar",
+    "distrito": "Distrito do Chinguar",
+    "municipio": "Chinguar",
+    "provincia": "Bié",
+    "delegado": "Pr. Manuel Nunda Bongue",
+    "data_congresso": "3-5-JUL"
+  },
+  {
+    "cn": "281",
+    "nome": "Central Andulo",
+    "distrito": "Distrito do Andulo",
+    "municipio": "Andulo",
+    "provincia": "Bié",
+    "delegado": "Pr. Miguel Evaldine Praia",
+    "data_congresso": "4-6-SET"
+  },
+  {
+    "cn": "317",
+    "nome": "Belém Menongue",
+    "distrito": "Distrito Menongue",
+    "municipio": "Menongue",
+    "provincia": "Cubango",
+    "delegado": "Pr. Eugenio Kapingala Manuel",
+    "data_congresso": "24-27-SET"
+  },
+  {
+    "cn": "326",
+    "nome": "Cuito Cuanavale Sede",
+    "distrito": "Distrito Cuito Cuanavale",
+    "municipio": "Cuito Cuanavale",
+    "provincia": "Quando",
+    "delegado": "Pr. Florindo Chiconjo",
+    "data_congresso": "24-27-SET"
+  }
+]

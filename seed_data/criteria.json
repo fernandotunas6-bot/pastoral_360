@@ -1,0 +1,359 @@
+[
+  {
+    "id": 1,
+    "categoria": "Assistência Pastoral",
+    "item_numero": 1,
+    "nome": "Pontualidade nos Cultos e Reuniões",
+    "descricao": "Chegada antecipada e cumprimento rigoroso dos horários previstos."
+  },
+  {
+    "id": 2,
+    "categoria": "Assistência Pastoral",
+    "item_numero": 2,
+    "nome": "Visitação",
+    "descricao": "Visita regular aos membros, enfermos, desanimados e novas famílias."
+  },
+  {
+    "id": 3,
+    "categoria": "Assistência Pastoral",
+    "item_numero": 3,
+    "nome": "Aconselhamento",
+    "descricao": "Orientação espiritual, ética e prudente a membros e famílias."
+  },
+  {
+    "id": 4,
+    "categoria": "Assistência Pastoral",
+    "item_numero": 4,
+    "nome": "Espiritualidade refletida",
+    "descricao": "Testemunho de vida consagrada e vida de oração exemplar."
+  },
+  {
+    "id": 5,
+    "categoria": "Assistência Pastoral",
+    "item_numero": 5,
+    "nome": "Freqüência às atividades espirituais da igreja",
+    "descricao": "Participação assídua em cultos, vigílias e programas de oração."
+  },
+  {
+    "id": 6,
+    "categoria": "Assistência Pastoral",
+    "item_numero": 6,
+    "nome": "Freqüência às atividades sociais da igreja",
+    "descricao": "Presença ativa em momentos de confraternização e eventos comunitários."
+  },
+  {
+    "id": 7,
+    "categoria": "Assistência Pastoral",
+    "item_numero": 7,
+    "nome": "Apoio às atividades dos Jovens",
+    "descricao": "Incentivo e acompanhamento próximo aos ministérios jovens (JA, Desbravadores)."
+  },
+  {
+    "id": 8,
+    "categoria": "Assistência Pastoral",
+    "item_numero": 8,
+    "nome": "Habilidade em resolver conflitos",
+    "descricao": "Pacificação, equidade e sabedoria na mediação de desentendimentos."
+  },
+  {
+    "id": 9,
+    "categoria": "Assistência Pastoral",
+    "item_numero": 9,
+    "nome": "Estudioso e com vontade de Aprender",
+    "descricao": "Dedicação contínua ao estudo bíblico, teológico e crescimento pessoal."
+  },
+  {
+    "id": 10,
+    "categoria": "Assistência Pastoral",
+    "item_numero": 10,
+    "nome": "Preparo Intelectual",
+    "descricao": "Domínio doutrinário, cultura geral e clareza de pensamento."
+  },
+  {
+    "id": 11,
+    "categoria": "Assistência Pastoral",
+    "item_numero": 11,
+    "nome": "Demonstra Vocação Pastoral",
+    "descricao": "Amor genuíno pelas almas e paixão pelo ministério evangélico."
+  },
+  {
+    "id": 1,
+    "categoria": "Relacionamento Pessoal",
+    "item_numero": 1,
+    "nome": "Cuidado na Higiene Pessoal",
+    "descricao": "Apresentação limpa, asseio e cuidado postural no dia a dia."
+  },
+  {
+    "id": 2,
+    "categoria": "Relacionamento Pessoal",
+    "item_numero": 2,
+    "nome": "Vestir-se Adequadamente",
+    "descricao": "Trajar-se com modéstia, elegância e decoro pastoral em todas as ocasiões."
+  },
+  {
+    "id": 3,
+    "categoria": "Relacionamento Pessoal",
+    "item_numero": 3,
+    "nome": "Representa bem a igreja na comunidade",
+    "descricao": "Bom nome e testemunho irrepreensível perante a sociedade civil."
+  },
+  {
+    "id": 4,
+    "categoria": "Relacionamento Pessoal",
+    "item_numero": 4,
+    "nome": "Atenção e Cortesia no trato com os membros",
+    "descricao": "Tratamento respeitoso, acolhedor e atencioso com todos os irmãos."
+  },
+  {
+    "id": 5,
+    "categoria": "Relacionamento Pessoal",
+    "item_numero": 5,
+    "nome": "Entusiasmo e bom humor",
+    "descricao": "Atitude positiva, alegre e contagiante no serviço pastoral."
+  },
+  {
+    "id": 6,
+    "categoria": "Relacionamento Pessoal",
+    "item_numero": 6,
+    "nome": "Confiabilidade",
+    "descricao": "Manutenção de confidencialidade, palavra honrada e lealdade."
+  },
+  {
+    "id": 7,
+    "categoria": "Relacionamento Pessoal",
+    "item_numero": 7,
+    "nome": "Demonstração de Amizade",
+    "descricao": "Aproximação sincera, empatia e calor humano nas relações."
+  },
+  {
+    "id": 8,
+    "categoria": "Relacionamento Pessoal",
+    "item_numero": 8,
+    "nome": "Humildade",
+    "descricao": "Disposição para ouvir, reconhecer falhas e aceitar conselhos."
+  },
+  {
+    "id": 9,
+    "categoria": "Relacionamento Pessoal",
+    "item_numero": 9,
+    "nome": "Cortesia",
+    "descricao": "Boas maneiras, gentileza e educação no falar e agir."
+  },
+  {
+    "id": 10,
+    "categoria": "Relacionamento Pessoal",
+    "item_numero": 10,
+    "nome": "Otimismo",
+    "descricao": "Fé nas promessas divinas e visão encorajadora diante dos desafios."
+  },
+  {
+    "id": 11,
+    "categoria": "Relacionamento Pessoal",
+    "item_numero": 11,
+    "nome": "Maturidade e Responsabilidade",
+    "descricao": "Equilíbrio emocional e cumprimento criterioso dos compromissos."
+  },
+  {
+    "id": 1,
+    "categoria": "Família Pastoral",
+    "item_numero": 1,
+    "nome": "Relacionamento com a família",
+    "descricao": "Harmonia, carinho, respeito e liderança amorosa no lar."
+  },
+  {
+    "id": 2,
+    "categoria": "Família Pastoral",
+    "item_numero": 2,
+    "nome": "Envolvimento da Esposa nas Atividades da Igreja",
+    "descricao": "Participação voluntária e integradora da esposa nos ministérios."
+  },
+  {
+    "id": 3,
+    "categoria": "Família Pastoral",
+    "item_numero": 3,
+    "nome": "Testemunho da esposa com os princípios da Igreja",
+    "descricao": "Conduta exemplar da esposa na fé, modéstia e vida cristã."
+  },
+  {
+    "id": 4,
+    "categoria": "Família Pastoral",
+    "item_numero": 4,
+    "nome": "Testemunho dos Filhos",
+    "descricao": "Comportamento respeitoso e bom testemunho dos filhos na igreja/comunidade."
+  },
+  {
+    "id": 5,
+    "categoria": "Família Pastoral",
+    "item_numero": 5,
+    "nome": "Administra bem as Finanças da Família",
+    "descricao": "Orçamento familiar equilibrado, fidelidade nos dízimos e honra a dívidas."
+  },
+  {
+    "id": 1,
+    "categoria": "Sermões",
+    "item_numero": 1,
+    "nome": "Claros e Convincentes",
+    "descricao": "Pregação compreensível, lógica, persuasiva e embasada na Bíblia."
+  },
+  {
+    "id": 2,
+    "categoria": "Sermões",
+    "item_numero": 2,
+    "nome": "Cristocêntricos",
+    "descricao": "Mensagens que exaltam a pessoa, sacrifício e graça de Jesus Cristo."
+  },
+  {
+    "id": 3,
+    "categoria": "Sermões",
+    "item_numero": 3,
+    "nome": "Conteúdo adequado às necessidades dos membros",
+    "descricao": "Sermões práticos, oportunos e edificantes para a realidade local."
+  },
+  {
+    "id": 4,
+    "categoria": "Sermões",
+    "item_numero": 4,
+    "nome": "Bem organizados",
+    "descricao": "Estrutura homilética bem definida (introdução, corpo, aplicação, apelo)."
+  },
+  {
+    "id": 5,
+    "categoria": "Sermões",
+    "item_numero": 5,
+    "nome": "Dentro do tempo",
+    "descricao": "Respeito rigoroso à duração recomendada para os sermões e cultos."
+  },
+  {
+    "id": 6,
+    "categoria": "Sermões",
+    "item_numero": 6,
+    "nome": "Espontâneo ao pregar",
+    "descricao": "Comunicação natural, fluida, sem leitura engessada de manuscritos."
+  },
+  {
+    "id": 7,
+    "categoria": "Sermões",
+    "item_numero": 7,
+    "nome": "Pregador Equilibrado",
+    "descricao": "Postura sem fanatismo, extremismos ou linguagem agressiva."
+  },
+  {
+    "id": 8,
+    "categoria": "Sermões",
+    "item_numero": 8,
+    "nome": "Tem Plano (calendário) de pregação",
+    "descricao": "Planejamento sistemático e variado dos temas sermônicos do ano."
+  },
+  {
+    "id": 1,
+    "categoria": "Administração",
+    "item_numero": 1,
+    "nome": "Pontualidade",
+    "descricao": "Cumprimento pontual de reuniões, relatórios e prazos administrativos."
+  },
+  {
+    "id": 2,
+    "categoria": "Administração",
+    "item_numero": 2,
+    "nome": "Organização",
+    "descricao": "Sistematização de arquivos, dados da igreja e agenda pastoral."
+  },
+  {
+    "id": 3,
+    "categoria": "Administração",
+    "item_numero": 3,
+    "nome": "Imparcialidade",
+    "descricao": "Tratamento justo, sem favoritismo nem parcialidade nas decisões."
+  },
+  {
+    "id": 4,
+    "categoria": "Administração",
+    "item_numero": 4,
+    "nome": "Iniciativa",
+    "descricao": "Proatividade na identificação e solução de problemas locais."
+  },
+  {
+    "id": 5,
+    "categoria": "Administração",
+    "item_numero": 5,
+    "nome": "Delegação de Responsabilidades",
+    "descricao": "Capacidade de envolver líderes e distribuir tarefas com confiança."
+  },
+  {
+    "id": 6,
+    "categoria": "Administração",
+    "item_numero": 6,
+    "nome": "Dirigi bem a Comissão da Igreja",
+    "descricao": "Condução eficiente, espiritual e democrática das reuniões da comissão."
+  },
+  {
+    "id": 7,
+    "categoria": "Administração",
+    "item_numero": 7,
+    "nome": "Atualizado com as finanças da igreja",
+    "descricao": "Acompanhamento rigoroso das entradas de dízimos, ofertas e remessas."
+  },
+  {
+    "id": 8,
+    "categoria": "Administração",
+    "item_numero": 8,
+    "nome": "Acompanhamento das atividades da igreja",
+    "descricao": "Supervisão constante dos departamentos e planos de ação."
+  },
+  {
+    "id": 9,
+    "categoria": "Administração",
+    "item_numero": 9,
+    "nome": "Promoção das Atividades da Igreja",
+    "descricao": "Divulgação eficaz e motivação para os projetos da Missão e União."
+  },
+  {
+    "id": 10,
+    "categoria": "Administração",
+    "item_numero": 10,
+    "nome": "Comunicação com a Liderança",
+    "descricao": "Fluição transparente de informações entre pastor, oficiais e Missão."
+  },
+  {
+    "id": 11,
+    "categoria": "Administração",
+    "item_numero": 11,
+    "nome": "Liderança e motivação do grupo",
+    "descricao": "Inspiração de equipes locais para o alcance de metas missionárias."
+  },
+  {
+    "id": 12,
+    "categoria": "Administração",
+    "item_numero": 12,
+    "nome": "Treinamento e orientação",
+    "descricao": "Capacitação contínua de oficiais, diáconos e líderes de departamentos."
+  },
+  {
+    "id": 13,
+    "categoria": "Administração",
+    "item_numero": 13,
+    "nome": "Fidelidade aos regulamentos da Igreja",
+    "descricao": "Estrito respeito ao Manual da Igreja e diretrizes administrativas."
+  },
+  {
+    "id": 14,
+    "categoria": "Administração",
+    "item_numero": 14,
+    "nome": "Planejamento Anual para o distrito",
+    "descricao": "Elaboração de um plano mestre integrado de metas e calendário."
+  },
+  {
+    "id": 15,
+    "categoria": "Administração",
+    "item_numero": 15,
+    "nome": "Planejamento das atividades evangelísticas",
+    "descricao": "Estratégia clara para campanhas de colheita, pequenos grupos e missão."
+  },
+  {
+    "id": 16,
+    "categoria": "Administração",
+    "item_numero": 16,
+    "nome": "Trabalho junto com a liderança",
+    "descricao": "Espírito de equipe e parceria fraterna com os anciãos e líderes."
+  }
+]
