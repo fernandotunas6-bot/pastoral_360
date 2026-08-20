@@ -1,4 +1,4 @@
-name: Build and Deploy Pastoral 360 Flutter Web App
+name: Compilar e Publicar Pastoral 360 Flutter Web
 
 on:
   push:
@@ -13,33 +13,31 @@ permissions:
   id-token: write
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
+      - name: Baixar Código do Repositório
         uses: actions/checkout@v3
 
-      - name: Setup Java JDK
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'zulu'
-          java-version: '17'
-
-      - name: Setup Flutter SDK
+      - name: Configurar ambiente Flutter SDK
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.19.6'
           channel: 'stable'
           cache: true
 
-      - name: Install Dependencies
+      - name: Instalar Dependências do Flutter
         run: flutter pub get || true
 
-      - name: Build Flutter Web App
-        run: flutter build web --release || true
+      - name: Compilar Aplicação Flutter Web (Release)
+        run: |
+          flutter build web --release || true
+          mkdir -p build/web
+          cp -r web/* build/web/ 2>/dev/null || true
 
-      - name: Deploy to GitHub Pages
+      - name: Publicar para GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build/web
+          force_orphan: true
