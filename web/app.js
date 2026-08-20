@@ -1,5 +1,5 @@
 // ====================================================
-// FLUTTER MATERIAL 3 STARTER WEB APP - SCRIPT WITH CLERK & SUPABASE SYNC
+// FLUTTER MATERIAL 3 STARTER WEB APP - COMPLETE SCRIPT
 // ====================================================
 
 let globalPastoresData = [];
@@ -16,13 +16,17 @@ document.addEventListener("DOMContentLoaded", () => {
   initClerkAuth();
   fetchData();
 
-  // M3 FAB Action
-  const fab = document.getElementById("m3-btn-fab");
-  if (fab) {
-    fab.addEventListener("click", () => {
-      openTab("tab-mobile-eval");
-    });
-  }
+  // Add Pastor Modal Handlers
+  const btnFab = document.getElementById("m3-btn-fab");
+  const btnHeaderAdd = document.getElementById("btn-header-add-pastor");
+  const btnTableAdd = document.getElementById("btn-add-pastor-table");
+
+  if (btnFab) btnFab.addEventListener("click", openAddPastorModal);
+  if (btnHeaderAdd) btnHeaderAdd.addEventListener("click", openAddPastorModal);
+  if (btnTableAdd) btnTableAdd.addEventListener("click", openAddPastorModal);
+
+  document.getElementById("modal-add-cancel").addEventListener("click", closeAddPastorModal);
+  document.getElementById("modal-add-save").addEventListener("click", saveNewPastor);
 
   // Dash Pastor Change
   document.getElementById("select-dash-pastor").addEventListener("change", (e) => {
@@ -36,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Filters
-  document.getElementById("input-search-pastor").addEventListener("input", filterPastorsTable);
   document.getElementById("input-search-church").addEventListener("input", filterChurchesTable);
   document.getElementById("input-search-contact").addEventListener("input", filterContactsTable);
 
@@ -74,6 +77,46 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+function openAddPastorModal() {
+  document.getElementById("modal-add-pastor").style.display = "flex";
+}
+
+function closeAddPastorModal() {
+  document.getElementById("modal-add-pastor").style.display = "none";
+}
+
+async function saveNewPastor() {
+  const nome = document.getElementById("add-p-nome").value;
+  const distrito = document.getElementById("add-p-dist").value;
+  const provincia = document.getElementById("add-p-prov").value;
+  const cargo = document.getElementById("add-p-cargo").value;
+  const contacto = document.getElementById("add-p-phone").value;
+
+  if (!nome || !distrito) {
+    return alert("Por favor preencha o Nome e o Distrito.");
+  }
+
+  try {
+    const res = await fetch("/api/pastors/add", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        nome: nome,
+        distrito: distrito,
+        provincia: provincia,
+        cargo: cargo,
+        contacto: contacto
+      })
+    });
+    const data = await res.json();
+    alert(data.message || "Pastor adicionado com sucesso!");
+    closeAddPastorModal();
+    fetchData();
+  } catch (err) {
+    alert("Erro ao adicionar pastor.");
+  }
+}
+
 // Clerk Auth Integration
 function initClerkAuth() {
   if (window.Clerk) {
@@ -94,15 +137,12 @@ function initSupabaseSyncButton() {
   if (!syncBtn) return;
 
   syncBtn.addEventListener("click", async () => {
-    // Show spinner & disable button
     syncBtn.disabled = true;
     syncBtn.innerHTML = `<span class="m3-spinner"></span> <span>A Sincronizar com o Supabase...</span>`;
 
     try {
       const res = await fetch("/api/data");
       const data = await res.json();
-      
-      // Simulate cloud sync delay
       await new Promise(r => setTimeout(r, 1200));
 
       syncBtn.style.backgroundColor = "#10B981";
@@ -144,12 +184,13 @@ function openTab(tabId) {
     "tab-dashboard": "Pastoral 360 - Dashboard Executivo",
     "tab-login": "Pastoral 360 - Autenticação & Perfil",
     "tab-mobile-eval": "Pastoral 360 - Avaliação Mobile",
-    "tab-evaluations": "Pastoral 360 - Matriz dos 100 Pastores",
+    "tab-evaluations": "Pastoral 360 - Matriz de Avaliação Pastoral",
     "tab-form": "Pastoral 360 - Ficha 51 Critérios",
     "tab-report": "Pastoral 360 - Relatório 28 Itens",
     "tab-churches": "Pastoral 360 - 330 Congregações",
     "tab-districts": "Pastoral 360 - Distritos",
     "tab-contacts": "Pastoral 360 - Contactos",
+    "tab-audit": "Pastoral 360 - Histórico de Auditoria",
     "tab-settings": "Pastoral 360 - Configurações"
   };
 
@@ -356,15 +397,32 @@ function renderPastorsTable(pastores) {
       <td>${p.administracao.toFixed(2)}</td>
       <td>${p.total_pontos}</td>
       <td><strong style="color: var(--m3-primary);">${p.media_geral.toFixed(2)}</strong></td>
-      <td><button class="m3-btn-tonal" onclick="openEvalModal(${p.id})">✏️ Avaliar</button></td>
+      <td>
+        <div style="display: flex; gap: 6px;">
+          <button class="m3-btn-tonal" onclick="openEvalModal(${p.id})">✏️ Avaliar</button>
+          <a href="/api/pdf/download/${p.id}" class="m3-btn-outlined" style="text-decoration: none; padding: 4px 8px; font-size: 11px;">📄 PDF</a>
+          <button class="m3-btn-filled" style="padding: 4px 8px; font-size: 11px; background-color: #3B82F6;" onclick="sendEmailModal(${p.id})">📧 E-mail</button>
+        </div>
+      </td>
     </tr>
   `).join("");
 }
 
-function filterPastorsTable() {
-  const search = document.getElementById("input-search-pastor").value.toLowerCase();
-  const filtered = globalPastoresData.filter(p => p.nome.toLowerCase().includes(search) || p.distrito.toLowerCase().includes(search));
-  renderPastorsTable(filtered);
+async function sendEmailModal(id) {
+  const email = prompt("Insira o e-mail do destinatário:", "valentino@mcasd.org");
+  if (!email) return;
+
+  try {
+    const res = await fetch("/api/email/send", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ pastor_id: id, to_email: email })
+    });
+    const data = await res.json();
+    alert(`✅ E-mail Corporativo Enviado!\n${data.message}`);
+  } catch (err) {
+    alert("Erro ao enviar e-mail.");
+  }
 }
 
 function renderChurchesTable(churches) {

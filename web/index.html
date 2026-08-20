@@ -34,7 +34,7 @@
       <!-- Extended FAB -->
       <button class="m3-fab" id="m3-btn-fab">
         <span style="font-size: 20px;">➕</span>
-        <span>Nova Avaliação</span>
+        <span>Adicionar Pastor</span>
       </button>
 
       <!-- Supabase Cloud Sync Button with Loading Spinner -->
@@ -100,7 +100,11 @@
         </div>
 
         <div class="m3-app-bar-actions">
-          <a href="/api/excel/download" class="m3-btn-outlined" style="text-decoration: none;" title="Baixar Ficheiro Excel Original Atualizado (.xlsx) sem instalar nada">
+          <button class="m3-btn-filled" id="btn-header-add-pastor" style="background-color: #6750A4;">
+            ➕ Novo Pastor
+          </button>
+
+          <a href="/api/excel/download" class="m3-btn-outlined" style="text-decoration: none;" title="Baixar Ficheiro Excel Original Atualizado (.xlsx)">
             📥 Baixar Excel Original
           </a>
 
@@ -321,14 +325,17 @@
         <section id="tab-evaluations" class="tab-pane">
           <div class="m3-card">
             <div class="m3-card-header">
-              <h3>📋 Matriz de Avaliação dos 100 Pastores</h3>
-              <a href="/api/excel/download" class="m3-btn-filled" style="background-color: #10B981; color: #FFF; text-decoration: none;">📥 Baixar Excel Atualizado (.xlsx)</a>
+              <h3>📋 Matriz de Avaliação dos Pastores</h3>
+              <div style="display: flex; gap: 10px;">
+                <button class="m3-btn-filled" id="btn-add-pastor-table">➕ Criar Novo Pastor</button>
+                <a href="/api/excel/download" class="m3-btn-filled" style="background-color: #10B981; color: #FFF; text-decoration: none;">📥 Baixar Excel (.xlsx)</a>
+              </div>
             </div>
             <div style="overflow-x: auto;">
               <table class="m3-table">
                 <thead>
                   <tr>
-                    <th>Nº</th><th>Nome</th><th>Distrito</th><th>Província</th><th>Contacto</th><th>Assist.</th><th>Rel.</th><th>Fam.</th><th>Serm.</th><th>Admin.</th><th>Total</th><th>Média</th><th>Ação</th>
+                    <th>Nº</th><th>Nome</th><th>Distrito</th><th>Província</th><th>Contacto</th><th>Assist.</th><th>Rel.</th><th>Fam.</th><th>Serm.</th><th>Admin.</th><th>Total</th><th>Média</th><th>Ações</th>
                   </tr>
                 </thead>
                 <tbody id="tbody-pastores"></tbody>
@@ -429,17 +436,17 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>20/08/2026 12:28</td>
+                  <td>20/08/2026 12:53</td>
                   <td>Pr. Valentino Canguele</td>
-                  <td>Sincronização Excel ➔ Supabase</td>
-                  <td>100 Pastores & 330 Congregações Sincronizados</td>
+                  <td>Criação de Pastor / Excel Sync</td>
+                  <td>Novo Pastor Adicionado & Boletim Gerado</td>
                   <td><span class="m3-chip" style="background-color: #10B981; color: #FFF;">SUCESSO</span></td>
                 </tr>
                 <tr>
-                  <td>20/08/2026 12:22</td>
-                  <td>Ancião Central</td>
-                  <td>Avaliação Mobile Submetida</td>
-                  <td>Pastor #1 (Pr. Enoque Paulino) Avaliado</td>
+                  <td>20/08/2026 12:28</td>
+                  <td>Pr. Valentino Canguele</td>
+                  <td>Sincronização Excel ➔ Supabase</td>
+                  <td>Pastores & Congregações Sincronizados</td>
                   <td><span class="m3-chip" style="background-color: #10B981; color: #FFF;">SUCESSO</span></td>
                 </tr>
               </tbody>
@@ -462,6 +469,24 @@
         </section>
       </div>
     </main>
+  </div>
+
+  <!-- Modal for Adding New Pastor -->
+  <div class="modal-overlay" id="modal-add-pastor" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6); display: none; align-items: center; justify-content: center; z-index: 1050;">
+    <div class="m3-card" style="width: 480px;">
+      <h3>➕ Adicionar Novo Pastor ao Excel</h3>
+      <div style="display: flex; flex-direction: column; gap: 10px; margin: 16px 0;">
+        <label>Nome Completo: <input type="text" id="add-p-nome" class="m3-text-field" placeholder="ex: Pr. Gabriel Santos"></label>
+        <label>Distrito: <input type="text" id="add-p-dist" class="m3-text-field" placeholder="ex: Huambo-Centro"></label>
+        <label>Província: <input type="text" id="add-p-prov" class="m3-text-field" value="Huambo"></label>
+        <label>Cargo / Função: <input type="text" id="add-p-cargo" class="m3-text-field" value="Pastor Distrital"></label>
+        <label>Contacto Telefónico: <input type="text" id="add-p-phone" class="m3-text-field" placeholder="923000000"></label>
+      </div>
+      <div style="display: flex; justify-content: flex-end; gap: 10px;">
+        <button class="m3-btn-outlined" id="modal-add-cancel">Cancelar</button>
+        <button class="m3-btn-filled" id="modal-add-save">Guardar no Excel & Gerar Boletim</button>
+      </div>
+    </div>
   </div>
 
   <!-- Modal for Evaluation -->
