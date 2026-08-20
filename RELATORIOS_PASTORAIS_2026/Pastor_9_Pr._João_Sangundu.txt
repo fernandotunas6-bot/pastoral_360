@@ -1,0 +1,34 @@
+====================================================
+IGREJA ADVENTISTA DO 7º DIA - MISSAO CENTRO (MCASD 2026)
+BOLETIM INDIVIDUAL DE AVALIAÇÃO PASTORAL
+====================================================
+
+IDENTIFICAÇÃO PASTORAL:
+----------------------------------------------------
+Nº Ordem: 9
+Nome Completo: Pr. João Sangundu
+Distrito / Função: Bongo
+Província: Huambo
+Cargo / Licença: Pastor Distrital
+Contacto Telefónico: 945463839
+
+PONTUAÇÕES PELAS 5 ÁREAS DE AVALIAÇÃO (Escala 1.0 - 5.0):
+----------------------------------------------------
+1. Assistência Pastoral (11 Critérios): 4.50
+2. Relacionamento Pessoal (11 Critérios): 4.50
+3. Família Pastoral (5 Critérios):        4.40
+4. Sermões e Doutrina (8 Critérios):       4.60
+5. Administração Distrital (16 Critérios): 4.50
+
+DESEMPENHO CONSOLIDADO:
+----------------------------------------------------
+Pontuação Total Obtida: 255.0 / 255.0 Pontos
+Média Geral Final:      5.00 / 5.00
+Classificação Final:    Excelente (E)
+
+SISTEMATIZAÇÃO & AUTENTICAÇÃO:
+----------------------------------------------------
+Desenvolvido por Valentino Canguele
+Associação Pastoral - MCASD 2026
+Sincronizado com Supabase Cloud & Ficheiro Excel Mestre
+====================================================
