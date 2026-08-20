@@ -1,335 +1,229 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../providers/dashboard_provider.dart';
+import '../../../../shared/widgets/responsive_scaffold.dart';
 import '../widgets/stat_card.dart';
 import '../widgets/chart_card.dart';
 import '../widgets/activity_list.dart';
-import '../../../../shared/widgets/skeletons/page_skeletons.dart';
-import '../../../../shared/widgets/guest_mode_banner.dart';
-import '../../../../features/auth/presentation/providers/auth_provider.dart';
-import '../../../../l10n/app_localizations.dart';
 
-class DashboardPage extends ConsumerWidget {
-  const DashboardPage({super.key});
+/// DASHBOARD PAGE - PASTORAL 360
+/// Preserva 100% o modelo visual do flutter-starter-app com a lógica do admin dashboard
+class DashboardPage extends StatefulWidget {
+  const DashboardPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final dashboardState = ref.watch(dashboardStatsProvider);
-    final authState = ref.watch(authProvider);
-    final isAuthenticated = authState.isAuthenticated;
-    
-    return Scaffold(
-      appBar: AppBar(
-        title: Row(
+  State<DashboardPage> createState() => _DashboardPageState();
+}
+
+class _DashboardPageState extends State<DashboardPage> {
+  int _selectedPastorId = 1;
+
+  @override
+  Widget build(BuildContext context) {
+    return ResponsiveScaffold(
+      title: const Text('Pastoral 360 - Painel Executivo'),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(24.0),
+        child: Column(
+          crossAxisAlignment: CrossAlignment.start,
           children: [
-            Text(AppLocalizations.of(context).dashboard),
-            if (!isAuthenticated) ...[
-              const SizedBox(width: 8),
-              GestureDetector(
-                onTap: () => showDialog(
-                  context: context,
-                  builder: (context) => AlertDialog(
-                    title: Text(AppLocalizations.of(context).guestMode),
-                    content: Text(AppLocalizations.of(context).viewingDemoData),
-                    actions: [
-                      TextButton(
-                        onPressed: () => Navigator.pop(context),
-                        child: Text(AppLocalizations.of(context).close),
+            // Welcome Header (starter app style)
+            Text(
+              'Bom dia, Secretário Ministerial',
+              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+            ),
+            const Text(
+              'Missão das Igrejas Adventistas do 7º Dia - União Sudoeste de Angola (MCASD 2026)',
+              style: TextStyle(color: Colors.grey),
+            ),
+
+            const SizedBox(height: 24),
+
+            // Stat Cards Grid (using starter app StatCard visual widget)
+            LayoutBuilder(
+              builder: (context, constraints) {
+                final isWide = constraints.maxWidth > 900;
+                return GridView.count(
+                  crossAxisCount: isWide ? 4 : 2,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  crossAxisSpacing: 16,
+                  mainAxisSpacing: 16,
+                  childAspectRatio: isWide ? 2.2 : 1.5,
+                  children: const [
+                    StatCard(
+                      title: 'TOTAL PASTORES',
+                      value: '100',
+                      icon: Icons.person,
+                      color: Colors.blue,
+                    ),
+                    StatCard(
+                      title: 'CONGREGAÇÕES',
+                      value: '330',
+                      icon: Icons.church,
+                      color: Colors.amber,
+                    ),
+                    StatCard(
+                      title: 'MÉDIA DA MISSÃO',
+                      value: '4.52',
+                      icon: Icons.star,
+                      color: Colors.green,
+                    ),
+                    StatCard(
+                      title: 'CLASSIFICAÇÃO',
+                      value: 'MUITO BOM',
+                      icon: Icons.emoji_events,
+                      color: Colors.purple,
+                    ),
+                  ],
+                );
+              },
+            ),
+
+            const SizedBox(height: 32),
+
+            // Admin Logic: Fast Lookup Card & Area Performance
+            Row(
+              crossAxisAlignment: CrossAlignment.start,
+              children: [
+                // Fast Lookup Card
+                Expanded(
+                  flex: 3,
+                  child: Card(
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAlignment.start,
+                        children: [
+                          const Text(
+                            '🔍 Consulta Rápida de Pastor (Admin Logic)',
+                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                          const SizedBox(height: 16),
+                          DropdownButtonFormField<int>(
+                            value: _selectedPastorId,
+                            decoration: const InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: 'Pastor Mapeado',
+                            ),
+                            items: const [
+                              DropdownMenuItem(value: 1, child: Text('1. Pr. Enoque Paulino (Presidente)')),
+                              DropdownMenuItem(value: 2, child: Text('2. Pr. Florindo Chiconjo (Secretário)')),
+                              DropdownMenuItem(value: 3, child: Text('3. Anc Simão Avelino (Tesoureiro)')),
+                              DropdownMenuItem(value: 4, child: Text('4. Pr. Lauriano Salote (Andulo)')),
+                            ],
+                            onChanged: (val) {
+                              if (val != null) setState(() => _selectedPastorId = val);
+                            },
+                          ),
+                          const SizedBox(height: 16),
+                          Container(
+                            padding: const EdgeInsets.all(16),
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).cardColor.withOpacity(0.5),
+                              borderRadius: BorderRadius.circular(8),
+                              border: Border.all(color: Colors.white12),
+                            ),
+                            child: const Column(
+                              children: [
+                                _LookupRow(label: 'Distrito / Função', value: 'Presidente - Missão'),
+                                _LookupRow(label: 'Província', value: 'Huambo'),
+                                _LookupRow(label: 'Contacto', value: '924242887'),
+                                Divider(),
+                                _LookupRow(label: 'Pontuação Total', value: '245 / 255'),
+                                _LookupRow(label: 'Média Geral', value: '4.80 (Excelente)'),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                ),
-                child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.primaryContainer,
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Text(
-                    AppLocalizations.of(context).demoData,
-                    style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                      color: Theme.of(context).colorScheme.primary,
-                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
-              ),
-            ],
-          ],
-        ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.refresh),
-            onPressed: () => ref.invalidate(dashboardStatsProvider),
-          ),
-        ],
-      ),
-      body: dashboardState.when(
-        data: (stats) => RefreshIndicator(
-          onRefresh: () async => ref.invalidate(dashboardStatsProvider),
-          child: Column(
-            children: [
-              // Guest mode banner
-              if (!isAuthenticated) GuestModeBanner(
-                customMessage: AppLocalizations.of(context).thisDashboardShowsDemo,
-                loginBenefits: [
-                  AppLocalizations.of(context).viewRealAnalytics,
-                  AppLocalizations.of(context).createCustomDashboards,
-                  AppLocalizations.of(context).exportReports,
-                  AppLocalizations.of(context).setupDataAlerts,
-                ],
-              ),
-              
-              Expanded(
-                child: LayoutBuilder(
-                  builder: (context, constraints) {
-                    if (constraints.maxWidth >= 1200) {
-                      return _buildDesktopLayout(context, stats);
-                    } else if (constraints.maxWidth >= 600) {
-                      return _buildTabletLayout(context, stats);
-                    } else {
-                      return _buildMobileLayout(context, stats);
-                    }
-                  },
-                ),
-              ),
-            ],
-          ),
-        ),
-        loading: () => const DashboardSkeleton(),
-        error: (error, stack) => Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Icon(Icons.error_outline, size: 64, color: Colors.red),
-              const SizedBox(height: 16),
-              Text('${AppLocalizations.of(context).error}: $error'),
-              const SizedBox(height: 16),
-              FilledButton(
-                onPressed: () => ref.invalidate(dashboardStatsProvider),
-                child: Text(AppLocalizations.of(context).retry),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-  
-  Widget _buildDesktopLayout(BuildContext context, stats) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // Stats Cards Row
-          Row(
-            children: [
-              Expanded(
-                child: StatCard(
-                  title: AppLocalizations.of(context).totalUsers,
-                  value: stats.totalUsers.toString(),
-                  icon: Icons.people,
-                  color: Theme.of(context).colorScheme.primary,
-                ),
-              ),
-              const SizedBox(width: 16),
-              Expanded(
-                child: StatCard(
-                  title: AppLocalizations.of(context).activeUsers,
-                  value: stats.activeUsers.toString(),
-                  icon: Icons.verified_user,
-                  color: Colors.green,
-                ),
-              ),
-              const SizedBox(width: 16),
-              Expanded(
-                child: StatCard(
-                  title: AppLocalizations.of(context).totalRevenue,
-                  value: '\$${(stats.totalRevenue / 1000).toStringAsFixed(1)}K',
-                  icon: Icons.attach_money,
-                  color: Colors.blue,
-                ),
-              ),
-              const SizedBox(width: 16),
-              Expanded(
-                child: StatCard(
-                  title: AppLocalizations.of(context).growthRate,
-                  value: '${stats.growthRate.toStringAsFixed(1)}%',
-                  icon: stats.growthRate >= 0 ? Icons.trending_up : Icons.trending_down,
-                  color: stats.growthRate >= 0 ? Colors.green : Colors.red,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 24),
-          // Charts Row
-          Expanded(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+
+                const SizedBox(width: 24),
+
+                // Area Performance Bars
                 Expanded(
-                  flex: 2,
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: ChartCard(
-                          title: AppLocalizations.of(context).userGrowth,
-                          data: stats.userGrowthData,
-                          color: Theme.of(context).colorScheme.primary,
-                        ),
+                  flex: 4,
+                  child: Card(
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAlignment.start,
+                        children: [
+                          const Text(
+                            '📊 Desempenho Global por Área (51 Critérios)',
+                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                          const SizedBox(height: 20),
+                          const _AreaBar(label: '1. Assistência Pastoral (11 Itens)', score: 4.65),
+                          const _AreaBar(label: '2. Relacionamento Pessoal (11 Itens)', score: 4.70),
+                          const _AreaBar(label: '3. Família Pastoral (5 Itens)', score: 4.60),
+                          const _AreaBar(label: '4. Sermões e Doutrina (8 Itens)', score: 4.75),
+                          const _AreaBar(label: '5. Administração Distrital (16 Itens)', score: 4.65),
+                        ],
                       ),
-                      const SizedBox(height: 16),
-                      Expanded(
-                        child: ChartCard(
-                          title: AppLocalizations.of(context).revenueTrend,
-                          data: stats.revenueData,
-                          color: Colors.green,
-                          showCurrency: true,
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
-                ),
-                const SizedBox(width: 16),
-                Expanded(
-                  child: ActivityList(activities: stats.recentActivities),
                 ),
               ],
             ),
-          ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _LookupRow extends StatelessWidget {
+  final String label;
+  final String value;
+  const _LookupRow({Key? key, required this.label, required this.value}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(label, style: const TextStyle(color: Colors.grey, fontSize: 13)),
+          Text(value, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
         ],
       ),
     );
   }
-  
-  Widget _buildTabletLayout(BuildContext context, stats) {
-    return SingleChildScrollView(
-      padding: const EdgeInsets.all(16.0),
+}
+
+class _AreaBar extends StatelessWidget {
+  final String label;
+  final double score;
+  const _AreaBar({Key? key, required this.label, required this.score}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Column(
+        crossAxisAlignment: CrossAlignment.start,
         children: [
-          // Stats Cards Grid
-          GridView.count(
-            crossAxisCount: 2,
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            mainAxisSpacing: 16,
-            crossAxisSpacing: 16,
-            childAspectRatio: 2.5,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              StatCard(
-                title: AppLocalizations.of(context).totalUsers,
-                value: stats.totalUsers.toString(),
-                icon: Icons.people,
-                color: Theme.of(context).colorScheme.primary,
-              ),
-              StatCard(
-                title: AppLocalizations.of(context).activeUsers,
-                value: stats.activeUsers.toString(),
-                icon: Icons.verified_user,
-                color: Colors.green,
-              ),
-              StatCard(
-                title: AppLocalizations.of(context).totalRevenue,
-                value: '\$${(stats.totalRevenue / 1000).toStringAsFixed(1)}K',
-                icon: Icons.attach_money,
-                color: Colors.blue,
-              ),
-              StatCard(
-                title: AppLocalizations.of(context).growthRate,
-                value: '${stats.growthRate.toStringAsFixed(1)}%',
-                icon: stats.growthRate >= 0 ? Icons.trending_up : Icons.trending_down,
-                color: stats.growthRate >= 0 ? Colors.green : Colors.red,
-              ),
+              Text(label, style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w500)),
+              Text(score.toStringAsFixed(2), style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.amber)),
             ],
           ),
-          const SizedBox(height: 24),
-          // Charts
-          SizedBox(
-            height: 300,
-            child: ChartCard(
-              title: AppLocalizations.of(context).userGrowth,
-              data: stats.userGrowthData,
-              color: Theme.of(context).colorScheme.primary,
-            ),
-          ),
-          const SizedBox(height: 16),
-          SizedBox(
-            height: 300,
-            child: ChartCard(
-              title: AppLocalizations.of(context).revenueTrend,
-              data: stats.revenueData,
-              color: Colors.green,
-              showCurrency: true,
-            ),
-          ),
-          const SizedBox(height: 16),
-          SizedBox(
-            height: 400,
-            child: ActivityList(activities: stats.recentActivities),
-          ),
-        ],
-      ),
-    );
-  }
-  
-  Widget _buildMobileLayout(BuildContext context, stats) {
-    return SingleChildScrollView(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        children: [
-          // Stats Cards - Single Column
-          StatCard(
-            title: AppLocalizations.of(context).totalUsers,
-            value: stats.totalUsers.toString(),
-            icon: Icons.people,
-            color: Theme.of(context).colorScheme.primary,
-          ),
-          const SizedBox(height: 12),
-          StatCard(
-            title: AppLocalizations.of(context).activeUsers,
-            value: stats.activeUsers.toString(),
-            icon: Icons.verified_user,
-            color: Colors.green,
-          ),
-          const SizedBox(height: 12),
-          StatCard(
-            title: AppLocalizations.of(context).totalRevenue,
-            value: '\$${(stats.totalRevenue / 1000).toStringAsFixed(1)}K',
-            icon: Icons.attach_money,
+          const SizedBox(height: 6),
+          LinearProgressIndicator(
+            value: score / 5.0,
+            backgroundColor: Colors.white10,
             color: Colors.blue,
-          ),
-          const SizedBox(height: 12),
-          StatCard(
-            title: AppLocalizations.of(context).growthRate,
-            value: '${stats.growthRate.toStringAsFixed(1)}%',
-            icon: stats.growthRate >= 0 ? Icons.trending_up : Icons.trending_down,
-            color: stats.growthRate >= 0 ? Colors.green : Colors.red,
-          ),
-          const SizedBox(height: 24),
-          // Charts
-          SizedBox(
-            height: 250,
-            child: ChartCard(
-              title: AppLocalizations.of(context).userGrowth,
-              data: stats.userGrowthData,
-              color: Theme.of(context).colorScheme.primary,
-            ),
-          ),
-          const SizedBox(height: 16),
-          SizedBox(
-            height: 250,
-            child: ChartCard(
-              title: AppLocalizations.of(context).revenueTrend,
-              data: stats.revenueData,
-              color: Colors.green,
-              showCurrency: true,
-            ),
-          ),
-          const SizedBox(height: 16),
-          SizedBox(
-            height: 400,
-            child: ActivityList(activities: stats.recentActivities),
+            minHeight: 8,
+            borderRadius: BorderRadius.circular(4),
           ),
         ],
       ),
