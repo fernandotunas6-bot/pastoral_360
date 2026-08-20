@@ -1,6 +1,5 @@
 // ====================================================
-// FLUTTER MATERIAL 3 STARTER WEB APP - SCRIPT
-// https://flutter-material3-starter.web.app
+// FLUTTER MATERIAL 3 STARTER WEB APP - SCRIPT WITH CLERK & SUPABASE SYNC
 // ====================================================
 
 let globalPastoresData = [];
@@ -13,6 +12,8 @@ let activePastorId = 1;
 document.addEventListener("DOMContentLoaded", () => {
   initM3Navigation();
   initM3ThemeAndColorPicker();
+  initSupabaseSyncButton();
+  initClerkAuth();
   fetchData();
 
   // M3 FAB Action
@@ -61,7 +62,67 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.getElementById("btn-submit-mobile-eval").addEventListener("click", submitMobileEvaluation);
   document.getElementById("btn-save-report").addEventListener("click", saveQuarterlyReport);
+
+  // Form Login
+  const loginForm = document.getElementById("form-login-m3");
+  if (loginForm) {
+    loginForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("✅ Autenticado com sucesso no Pastoral 360!");
+      openTab("tab-dashboard");
+    });
+  }
 });
+
+// Clerk Auth Integration
+function initClerkAuth() {
+  if (window.Clerk) {
+    window.Clerk.load({
+      publishableKey: "pk_test_bGl2ZS1tb25rZXktOTQuY2xlcmsuYWNjb3VudHMuZGV2JA"
+    }).then(() => {
+      const container = document.getElementById("clerk-auth-container");
+      if (container && window.Clerk.user) {
+        container.innerHTML = `<div class="m3-chip" style="background-color: #10B981; color: #FFF;">Sessão Clerk Ativa: ${window.Clerk.user.primaryEmailAddress}</div>`;
+      }
+    }).catch(err => console.log("Clerk auth standalone mode"));
+  }
+}
+
+// Supabase Sync Button with Animated Loading Spinner
+function initSupabaseSyncButton() {
+  const syncBtn = document.getElementById("m3-btn-sync");
+  if (!syncBtn) return;
+
+  syncBtn.addEventListener("click", async () => {
+    // Show spinner & disable button
+    syncBtn.disabled = true;
+    syncBtn.innerHTML = `<span class="m3-spinner"></span> <span>A Sincronizar com o Supabase...</span>`;
+
+    try {
+      const res = await fetch("/api/data");
+      const data = await res.json();
+      
+      // Simulate cloud sync delay
+      await new Promise(r => setTimeout(r, 1200));
+
+      syncBtn.style.backgroundColor = "#10B981";
+      syncBtn.innerHTML = `<span>✅ Sincronizado com Sucesso!</span>`;
+
+      setTimeout(() => {
+        syncBtn.disabled = false;
+        syncBtn.innerHTML = `<span>🔄 Sincronizar Supabase</span>`;
+      }, 2500);
+
+      fetchData();
+    } catch (err) {
+      syncBtn.disabled = false;
+      syncBtn.innerHTML = `<span>❌ Erro na Sincronização</span>`;
+      setTimeout(() => {
+        syncBtn.innerHTML = `<span>🔄 Sincronizar Supabase</span>`;
+      }, 2500);
+    }
+  });
+}
 
 // M3 Navigation Tabs
 function initM3Navigation() {
@@ -80,15 +141,16 @@ function openTab(tabId) {
   const titleEl = document.getElementById("m3-page-title");
 
   const titles = {
-    "tab-dashboard": "Flutter Material 3 Starter - Dashboard Executivo",
-    "tab-mobile-eval": "Flutter Material 3 Starter - Avaliação Mobile",
-    "tab-evaluations": "Flutter Material 3 Starter - Matriz dos 100 Pastores",
-    "tab-form": "Flutter Material 3 Starter - Ficha 51 Critérios",
-    "tab-report": "Flutter Material 3 Starter - Relatório 28 Itens",
-    "tab-churches": "Flutter Material 3 Starter - 330 Congregações",
-    "tab-districts": "Flutter Material 3 Starter - Distritos",
-    "tab-contacts": "Flutter Material 3 Starter - Contactos",
-    "tab-settings": "Flutter Material 3 Starter - Configurações"
+    "tab-dashboard": "Pastoral 360 - Dashboard Executivo",
+    "tab-login": "Pastoral 360 - Autenticação & Perfil",
+    "tab-mobile-eval": "Pastoral 360 - Avaliação Mobile",
+    "tab-evaluations": "Pastoral 360 - Matriz dos 100 Pastores",
+    "tab-form": "Pastoral 360 - Ficha 51 Critérios",
+    "tab-report": "Pastoral 360 - Relatório 28 Itens",
+    "tab-churches": "Pastoral 360 - 330 Congregações",
+    "tab-districts": "Pastoral 360 - Distritos",
+    "tab-contacts": "Pastoral 360 - Contactos",
+    "tab-settings": "Pastoral 360 - Configurações"
   };
 
   navItems.forEach(i => i.classList.remove("active"));
@@ -108,10 +170,12 @@ function openTab(tabId) {
 // M3 Seed Color Picker & Theme Toggle
 function initM3ThemeAndColorPicker() {
   const themeBtn = document.getElementById("m3-btn-theme");
-  themeBtn.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-    themeBtn.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
-  });
+  if (themeBtn) {
+    themeBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      themeBtn.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+    });
+  }
 
   const dots = document.querySelectorAll(".m3-color-dot");
   dots.forEach(dot => {

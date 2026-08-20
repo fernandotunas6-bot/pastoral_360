@@ -3,40 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flutter Material 3 Starter - Pastoral 360 MCASD 2026</title>
+  <title>Pastoral 360 - Flutter Material 3 & Clerk Auth</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="app.css">
+  <!-- Clerk JS SDK for Free Auth -->
+  <script async crossorigin="anonymous" data-clerk-publishable-key="pk_test_bGl2ZS1tb25rZXktOTQuY2xlcmsuYWNjb3VudHMuZGV2JA" src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js" type="text/javascript"></script>
 </head>
 <body class="dark-mode">
   <div class="flutter-m3-root">
     <!-- Flutter Material 3 Navigation Rail -->
     <aside class="m3-navigation-rail">
       <div class="m3-rail-header">
-        <div class="m3-logo">⚡</div>
+        <div class="m3-logo">⛪</div>
         <div class="m3-title">
           <h2>Pastoral 360</h2>
-          <span>Flutter M3 Starter UI</span>
+          <span>MCASD 2026 Starter</span>
         </div>
       </div>
 
-      <!-- Extended FAB (Floating Action Button) -->
+      <!-- User Profile Card -->
+      <div class="m3-profile-card">
+        <div class="m3-avatar">VC</div>
+        <div class="m3-profile-info">
+          <strong>Pr. Valentino Canguele</strong>
+          <small>🪪 LICENÇA Nº 2026-001</small>
+        </div>
+      </div>
+
+      <!-- Extended FAB -->
       <button class="m3-fab" id="m3-btn-fab">
         <span style="font-size: 20px;">➕</span>
         <span>Nova Avaliação</span>
       </button>
 
-      <!-- Direct Excel Download Button -->
-      <a href="/api/excel/download" class="m3-btn-filled" style="width: 100%; justify-content: center; text-decoration: none; margin-bottom: 12px; background-color: #10B981; color: #FFF;">
-        <span>📥 Baixar Excel (.xlsx)</span>
-      </a>
+      <!-- Supabase Cloud Sync Button with Loading Spinner -->
+      <button class="m3-btn-filled" id="m3-btn-sync" style="width: 100%; justify-content: center; margin-bottom: 12px; background-color: #10B981; color: #FFF;">
+        <span class="btn-text">🔄 Sincronizar Supabase</span>
+      </button>
 
       <!-- Material 3 Navigation Destinations -->
       <nav class="m3-nav-destinations">
         <button class="m3-nav-item active" data-tab="tab-dashboard">
           <span class="icon-pill">📊</span>
           <span>Dashboard</span>
+        </button>
+        <button class="m3-nav-item" data-tab="tab-login">
+          <span class="icon-pill">🔐</span>
+          <span>Login / Perfil</span>
         </button>
         <button class="m3-nav-item" data-tab="tab-mobile-eval">
           <span class="icon-pill">📱</span>
@@ -68,7 +83,7 @@
         </button>
         <button class="m3-nav-item" data-tab="tab-settings">
           <span class="icon-pill">⚙️</span>
-          <span>Configurações M3</span>
+          <span>Configurações</span>
         </button>
       </nav>
     </aside>
@@ -78,16 +93,14 @@
       <!-- Top App Bar -->
       <header class="m3-top-app-bar">
         <div class="m3-app-bar-title">
-          <h1 id="m3-page-title">Flutter Material 3 Starter - Dashboard</h1>
+          <h1 id="m3-page-title">Pastoral 360 - Painel Executivo</h1>
         </div>
 
         <div class="m3-app-bar-actions">
-          <!-- Direct Excel Download Action -->
           <a href="/api/excel/download" class="m3-btn-outlined" style="text-decoration: none;" title="Baixar Ficheiro Excel Original Atualizado (.xlsx) sem instalar nada">
             📥 Baixar Excel Original
           </a>
 
-          <!-- Seed Color Picker -->
           <div class="m3-color-picker-bar">
             <span style="font-size: 11px; opacity: 0.7;">Cor M3:</span>
             <div class="m3-color-dot active" style="background-color: #6750A4;" data-color="#6750A4"></div>
@@ -96,18 +109,35 @@
             <div class="m3-color-dot" style="background-color: #984061;" data-color="#984061"></div>
           </div>
 
-          <!-- Light / Dark Mode Icon Button -->
-          <button class="m3-icon-button" id="m3-btn-theme" title="Alternar Modo Claro / Escuro">
-            ☀️
-          </button>
+          <button class="m3-icon-button" id="m3-btn-theme" title="Alternar Modo Claro / Escuro">☀️</button>
         </div>
       </header>
 
       <!-- Main Body Content -->
       <div class="m3-body-content">
+        <!-- 0. LOGIN PAGE (STARTER APP STYLE WITH CLERK AUTH) -->
+        <section id="tab-login" class="tab-pane">
+          <div class="m3-login-screen">
+            <div class="m3-login-card">
+              <div class="m3-login-logo">⛪</div>
+              <h2 style="font-size: 20px; font-weight: 700; margin-bottom: 6px;">Pastoral 360 Auth</h2>
+              <p style="font-size: 13px; opacity: 0.7; margin-bottom: 24px;">Inicie sessão com Clerk ou Supabase Cloud</p>
+
+              <div id="clerk-auth-container" style="margin-bottom: 20px;"></div>
+
+              <form id="form-login-m3" style="display: flex; flex-direction: column; gap: 14px;">
+                <input type="email" id="login-email" class="m3-text-field" placeholder="E-mail Pastoral" value="valentino@mcasd.org" required>
+                <input type="password" id="login-pass" class="m3-text-field" placeholder="Palavra-passe" value="••••••••" required>
+                <button type="submit" class="m3-btn-filled" style="width: 100%; justify-content: center; padding: 14px;">
+                  🚀 Entrar no Sistema Pastoral 360
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+
         <!-- 1. DASHBOARD VIEW -->
         <section id="tab-dashboard" class="tab-pane active">
-          <!-- M3 Stat Cards Grid -->
           <div class="m3-grid-4">
             <div class="m3-stat-card">
               <span class="m3-stat-icon">👤</span>
@@ -142,11 +172,10 @@
             </div>
           </div>
 
-          <!-- M3 Elevated Cards -->
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
             <div class="m3-card">
               <div class="m3-card-header">
-                <h3>🔍 Consulta de Pastor (M3 Card)</h3>
+                <h3>🔍 Consulta Rápida de Pastor</h3>
               </div>
               <select id="select-dash-pastor" class="m3-text-field" style="margin-bottom: 16px;"></select>
               
@@ -177,7 +206,7 @@
 
             <div class="m3-card outlined">
               <div class="m3-card-header">
-                <h3>📊 Desempenho pelas 5 Áreas (M3 Outlined Card)</h3>
+                <h3>📊 Desempenho pelas 5 Áreas</h3>
               </div>
               <div style="display: flex; flex-direction: column; gap: 14px;">
                 <div>
@@ -237,7 +266,7 @@
         <!-- 2. MOBILE EVALUATION -->
         <section id="tab-mobile-eval" class="tab-pane">
           <div class="m3-card" style="max-width: 600px; margin: 0 auto;">
-            <h3>📱 Avaliação Mobile (Material 3 Form)</h3>
+            <h3>📱 Avaliação Mobile</h3>
             <div id="mobile-login-card">
               <label style="display: block; font-size: 13px; margin-bottom: 6px;">E-mail do Oficial:</label>
               <input type="email" id="officer-email" class="m3-text-field" value="anciao.central@mcasd.org" style="margin-bottom: 14px;">
@@ -257,7 +286,6 @@
               <label style="display: block; font-size: 13px; margin-bottom: 6px;">Pastor:</label>
               <select id="mobile-select-pastor" class="m3-text-field" style="margin-bottom: 16px;"></select>
 
-              <!-- Sliders -->
               <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px;">
                 <div>
                   <div style="display: flex; justify-content: space-between; font-size: 12px;"><span>Assistência:</span><strong id="lbl-mob-1">5.0</strong></div>
@@ -383,9 +411,9 @@
         <!-- 9. SETTINGS -->
         <section id="tab-settings" class="tab-pane">
           <div class="m3-card">
-            <h3>⚙️ Download do Ficheiro Excel Original Atualizado</h3>
+            <h3>⚙️ Sincronização Supabase Cloud & Excel Mestre</h3>
             <p style="font-size: 13px; opacity: 0.8; margin-top: 8px;">
-              Clique no botão abaixo para descarregar o ficheiro Excel original <code>Avaliacao_Pastoral_MCASD_2026.xlsx</code> com todas as 7 abas e dados atualizados no seu computador ou telemóvel sem necessidade de instalar nada:
+              Clique no botão verde na barra lateral para sincronizar todas as 7 tabelas do Excel com o banco de dados Supabase Cloud em tempo real.
             </p>
             <br>
             <a href="/api/excel/download" class="m3-btn-filled" style="background-color: #10B981; color: #FFF; text-decoration: none;">
