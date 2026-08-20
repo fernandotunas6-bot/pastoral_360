@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  pastoral360:
+    build: .
+    container_name: pastoral360_app
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./Avaliacao_Pastoral_MCASD_2026.xlsx:/app/Avaliacao_Pastoral_MCASD_2026.xlsx
+    restart: always
