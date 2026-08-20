@@ -27,6 +27,11 @@
         <span>Nova Avaliação</span>
       </button>
 
+      <!-- Direct Excel Download Button -->
+      <a href="/api/excel/download" class="m3-btn-filled" style="width: 100%; justify-content: center; text-decoration: none; margin-bottom: 12px; background-color: #10B981; color: #FFF;">
+        <span>📥 Baixar Excel (.xlsx)</span>
+      </a>
+
       <!-- Material 3 Navigation Destinations -->
       <nav class="m3-nav-destinations">
         <button class="m3-nav-item active" data-tab="tab-dashboard">
@@ -77,7 +82,12 @@
         </div>
 
         <div class="m3-app-bar-actions">
-          <!-- Seed Color Picker (Exact Flutter M3 Starter Feature) -->
+          <!-- Direct Excel Download Action -->
+          <a href="/api/excel/download" class="m3-btn-outlined" style="text-decoration: none;" title="Baixar Ficheiro Excel Original Atualizado (.xlsx) sem instalar nada">
+            📥 Baixar Excel Original
+          </a>
+
+          <!-- Seed Color Picker -->
           <div class="m3-color-picker-bar">
             <span style="font-size: 11px; opacity: 0.7;">Cor M3:</span>
             <div class="m3-color-dot active" style="background-color: #6750A4;" data-color="#6750A4"></div>
@@ -281,7 +291,7 @@
           <div class="m3-card">
             <div class="m3-card-header">
               <h3>📋 Matriz de Avaliação dos 100 Pastores</h3>
-              <input type="text" id="input-search-pastor" class="m3-text-field" placeholder="🔍 Pesquisar pastor ou distrito..." style="max-width: 300px;">
+              <a href="/api/excel/download" class="m3-btn-filled" style="background-color: #10B981; color: #FFF; text-decoration: none;">📥 Baixar Excel Atualizado (.xlsx)</a>
             </div>
             <div style="overflow-x: auto;">
               <table class="m3-table">
@@ -373,10 +383,14 @@
         <!-- 9. SETTINGS -->
         <section id="tab-settings" class="tab-pane">
           <div class="m3-card">
-            <h3>⚙️ Configurações Flutter Material 3</h3>
+            <h3>⚙️ Download do Ficheiro Excel Original Atualizado</h3>
             <p style="font-size: 13px; opacity: 0.8; margin-top: 8px;">
-              Interface Flutter Material 3 Web adaptada diretamente de <code>https://flutter-material3-starter.web.app</code>.
+              Clique no botão abaixo para descarregar o ficheiro Excel original <code>Avaliacao_Pastoral_MCASD_2026.xlsx</code> com todas as 7 abas e dados atualizados no seu computador ou telemóvel sem necessidade de instalar nada:
             </p>
+            <br>
+            <a href="/api/excel/download" class="m3-btn-filled" style="background-color: #10B981; color: #FFF; text-decoration: none;">
+              📥 Descarregar Ficheiro Excel Mestre Atualizado (.xlsx)
+            </a>
           </div>
         </section>
       </div>
