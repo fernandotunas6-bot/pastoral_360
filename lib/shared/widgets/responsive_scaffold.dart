@@ -14,7 +14,7 @@ class ResponsiveScaffold extends ConsumerStatefulWidget {
 }
 
 class _ResponsiveScaffoldState extends ConsumerState<ResponsiveScaffold> 
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
   late AnimationController _controller;
   late CurvedAnimation _railAnimation;
   late ReverseAnimation _barAnimation;

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 
 enum ButtonVariant { primary, secondary, tertiary, danger }
 enum ButtonSize { small, medium, large }
@@ -74,13 +73,13 @@ class CustomButton extends StatelessWidget {
       ButtonVariant.danger => FilledButton(
           onPressed: isLoading ? null : onPressed,
           style: buttonStyle?.copyWith(
-            backgroundColor: WidgetStateProperty.resolveWith((states) {
-              if (states.contains(WidgetState.disabled)) {
-                return theme.colorScheme.error.withValues(alpha: 0.38);
+            backgroundColor: MaterialStateProperty.resolveWith((states) {
+              if (states.contains(MaterialState.disabled)) {
+                return theme.colorScheme.error.withOpacity(0.38);
               }
               return theme.colorScheme.error;
             }),
-            foregroundColor: WidgetStateProperty.all(
+            foregroundColor: MaterialStateProperty.all(
               theme.colorScheme.onError,
             ),
           ),
@@ -95,13 +94,7 @@ class CustomButton extends StatelessWidget {
       );
     }
     
-    return button.animate()
-      .scale(
-        begin: const Offset(0.95, 0.95),
-        end: const Offset(1.0, 1.0),
-        duration: 200.ms,
-        curve: Curves.easeOut,
-      );
+    return button;
   }
   
   EdgeInsetsGeometry _getPadding() {

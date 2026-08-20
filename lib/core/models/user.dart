@@ -1,22 +1,51 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+class User {
+  final String id;
+  final String email;
+  final String name;
+  final String? avatarUrl;
+  final String role;
+  final DateTime createdAt;
+  final bool isActive;
+  final String? department;
+  final String? phone;
+  final DateTime? lastLogin;
 
-part 'user.freezed.dart';
-part 'user.g.dart';
+  const User({
+    required this.id,
+    required this.email,
+    required this.name,
+    this.avatarUrl,
+    required this.role,
+    required this.createdAt,
+    required this.isActive,
+    this.department,
+    this.phone,
+    this.lastLogin,
+  });
 
-@freezed
-class User with _$User {
-  const factory User({
-    required String id,
-    required String email,
-    required String name,
-    String? avatarUrl,
-    required String role,
-    required DateTime createdAt,
-    required bool isActive,
-    String? department,
-    String? phone,
-    DateTime? lastLogin,
-  }) = _User;
+  factory User.fromJson(Map<String, dynamic> json) => User(
+    id: json['id'] as String? ?? '',
+    email: json['email'] as String? ?? '',
+    name: json['name'] as String? ?? '',
+    avatarUrl: json['avatarUrl'] as String?,
+    role: json['role'] as String? ?? 'user',
+    createdAt: json['createdAt'] != null ? DateTime.parse(json['createdAt'] as String) : DateTime.now(),
+    isActive: json['isActive'] as bool? ?? true,
+    department: json['department'] as String?,
+    phone: json['phone'] as String?,
+    lastLogin: json['lastLogin'] != null ? DateTime.parse(json['lastLogin'] as String) : null,
+  );
 
-  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
+  Map<String, dynamic> toJson() => {
+    'id': id,
+    'email': email,
+    'name': name,
+    'avatarUrl': avatarUrl,
+    'role': role,
+    'createdAt': createdAt.toIso8601String(),
+    'isActive': isActive,
+    'department': department,
+    'phone': phone,
+    'lastLogin': lastLogin?.toIso8601String(),
+  };
 }
