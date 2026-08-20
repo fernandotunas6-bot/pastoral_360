@@ -30,7 +30,7 @@ jobs:
         with:
           flutter-version: '3.19.6'
           channel: 'stable'
-          cache: true
+          cache: false
 
       - name: Instalar Dependências do Flutter
         run: flutter pub get || true
