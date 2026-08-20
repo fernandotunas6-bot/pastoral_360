@@ -23,6 +23,32 @@ class User {
     this.lastLogin,
   });
 
+  User copyWith({
+    String? id,
+    String? email,
+    String? name,
+    String? avatarUrl,
+    String? role,
+    DateTime? createdAt,
+    bool? isActive,
+    String? department,
+    String? phone,
+    DateTime? lastLogin,
+  }) {
+    return User(
+      id: id ?? this.id,
+      email: email ?? this.email,
+      name: name ?? this.name,
+      avatarUrl: avatarUrl ?? this.avatarUrl,
+      role: role ?? this.role,
+      createdAt: createdAt ?? this.createdAt,
+      isActive: isActive ?? this.isActive,
+      department: department ?? this.department,
+      phone: phone ?? this.phone,
+      lastLogin: lastLogin ?? this.lastLogin,
+    );
+  }
+
   factory User.fromJson(Map<String, dynamic> json) => User(
     id: json['id'] as String? ?? '',
     email: json['email'] as String? ?? '',
