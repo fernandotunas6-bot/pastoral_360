@@ -86,8 +86,8 @@ class _FileUploadWidgetState extends State<FileUploadWidget> {
                 ),
                 borderRadius: BorderRadius.circular(8),
                 color: _isDragOver 
-                    ? theme.colorScheme.primary.withValues(alpha: 0.05)
-                    : theme.colorScheme.surfaceContainerLowest,
+                    ? theme.colorScheme.primary.withOpacity(0.05)
+                    : theme.colorScheme.surfaceVariant,
               ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

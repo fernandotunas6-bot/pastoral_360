@@ -59,8 +59,8 @@ class _SkeletonWidgetState extends State<SkeletonWidget>
       margin: widget.margin,
       decoration: BoxDecoration(
         color: isDark 
-            ? theme.colorScheme.surfaceContainerHighest
-            : theme.colorScheme.surfaceContainerLowest,
+            ? theme.colorScheme.surfaceVariant
+            : theme.colorScheme.surfaceVariant,
         shape: widget.shape,
         borderRadius: widget.shape == BoxShape.rectangle
             ? BorderRadius.circular(widget.borderRadius)
@@ -80,7 +80,7 @@ class _SkeletonWidgetState extends State<SkeletonWidget>
                 end: Alignment.centerRight,
                 colors: [
                   Colors.transparent,
-                  theme.colorScheme.surface.withValues(alpha: 0.3),
+                  theme.colorScheme.surface.withOpacity(0.3),
                   Colors.transparent,
                 ],
                 stops: [

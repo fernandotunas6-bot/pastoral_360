@@ -72,7 +72,7 @@ class ErrorPage extends StatelessWidget {
                 if (details != null) ...[
                   const SizedBox(height: 16),
                   Card(
-                    color: theme.colorScheme.errorContainer.withValues(alpha: 0.1),
+                    color: theme.colorScheme.errorContainer.withOpacity(0.1),
                     child: Padding(
                       padding: const EdgeInsets.all(16),
                       child: Column(
