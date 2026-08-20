@@ -1,205 +1,138 @@
-# Flutter Starter App
+# ⛪ PASTORAL 360 — SISTEMA INTEGRAL DE AVALIAÇÃO PASTORAL E GESTÃO MINISTERIAL
 
-A modern, production-ready Flutter starter template with best practices, clean architecture, and essential features pre-configured. Perfect for quickly bootstrapping new Flutter projects with a solid foundation.
+<p align="center">
+  <img src="https://img.shields.io/badge/Flutter-3.19.6-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter">
+  <img src="https://img.shields.io/badge/Dart-3.3.0-0175C2?style=for-the-badge&logo=dart&logoColor=white" alt="Dart">
+  <img src="https://img.shields.io/badge/Supabase-PostgreSQL-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" alt="Supabase">
+  <img src="https://img.shields.io/badge/Material_3-Design_System-6750A4?style=for-the-badge&logo=materialdesign&logoColor=white" alt="Material 3">
+  <img src="https://img.shields.io/badge/Precisão_Cálculos-100%25_PASS-10B981?style=for-the-badge" alt="Precisão">
+</p>
 
-## 🌐 Live Demo
+---
 
-Check out the live demo: [https://flutter-material3-starter.web.app](https://flutter-material3-starter.web.app)
+## 📋 Visão Geral do Sistema
 
-## 🚀 Features
+O **Pastoral 360** é uma plataforma empresarial de alto desempenho desenvolvida para a **Igreja Adventista do Sétimo Dia — União Sudoeste de Angola — Missão Centro (MCASD 2026)**.
 
-### Core Architecture
-- **Clean Architecture**: Organized code structure with separation of concerns
-- **State Management**: Riverpod 2.0 with code generation support
-- **Routing**: GoRouter for declarative navigation
-- **Dependency Injection**: Built-in with Riverpod
-- **Error Handling**: Comprehensive error boundary and error widgets
+O sistema automatiza a avaliação pastoral, acompanhamento distrital de 330 congregações, relatórios trimestrais ministeriais e integração bidirecional em tempo real com o Excel mestre.
 
-### UI/UX Features
-- **Responsive Design**: Adaptive layouts for mobile, tablet, and desktop
-- **Theme System**: Material 3 with light/dark mode support
-- **Internationalization**: Multi-language support (EN, ES, FR)
-- **Animations**: Smooth transitions with flutter_animate
-- **Loading States**: Skeleton screens and shimmer effects
-- **Custom Components**: Reusable UI components library
+---
 
-### Built-in Pages
-- **Authentication**: Login and registration flows
-- **Dashboard**: Stats, charts, and activity feeds
-- **User Management**: CRUD operations with data tables
-- **Settings**: Theme and language preferences
-- **Onboarding**: First-time user experience
-- **Error Pages**: 404, error boundaries, and fallbacks
+## 🌟 Principais Recursos e Módulos
 
-### Development Features
-- **Mock API Service**: Development without backend
-- **Form Validation**: Comprehensive form handling
-- **File Upload**: Drag-and-drop file upload widget
-- **Search**: Integrated search functionality
-- **Notifications**: In-app notification system
+### 📊 1. Painel Executivo (Admin Dashboard)
+- Visualização em tempo real de KPIs da Missão (**100 Pastores**, **330 Congregações**, Média Geral **4.52**).
+- Consulta Rápida de Pastor por Distrito, Província (Huambo, Bié, Cubango, Quando) e Cargo.
+- Gráficos de barras de desempenho por área ministerial (Assistência, Relacionamento, Família, Sermões e Administração).
 
-## 📋 Prerequisites
+### 📱 2. Avaliação Pastoral por Telemóvel
+- Interface responsiva optimizada para telemóveis e tablets para uso dos Oficiais e Anciãos de Igreja.
+- Autenticação e seleção encadeada (*Distrito ➔ Igreja ➔ Pastor*).
+- Sliders interativos de pontuação (1.0 a 5.0) com envio automático para o Supabase Cloud e sincronização no Excel.
 
-- Flutter SDK (3.0 or higher)
-- Dart SDK (3.0 or higher)
-- IDE with Flutter support (VS Code, Android Studio, IntelliJ)
+### 📝 3. Ficha de Avaliação Fiel (51 Critérios)
+- Matriz completa dos **51 critérios de avaliação** divididos em 5 áreas ministeriais.
+- Ficha de impressão A4 institucional para reuniões de comissão e arquivo físico.
 
-## 🛠️ Installation
+### 🖨️ 4. Relatório Trimestral da Associação Pastoral (28 Itens)
+- Módulo digital de preenchimento dos **28 itens de Obreiros e Missão Global Evangelista**.
+- Fórmulas automáticas de totais e exportação em formato oficial.
 
-1. **Clone the repository**
+### 📞 5. Directório Telefónico Ministerial
+- Lista de contactos telefónicos dos 100 pastores com acção direta de chamada (`tel:`).
+
+---
+
+## 📐 Arquitetura do Sistema (Clean Architecture)
+
+```text
+┌─────────────────────────────────────────────────────────────────┐
+│                       CAMADA DE APRESENTAÇÃO                    │
+│  - Widgets Material 3 (NavigationRail, StatCard, Responsive)    │
+│  - State Management com Riverpod NotifierProviders              │
+│  - Rotas Declarativas com GoRouter                              │
+└─────────────────────────────────────────────────────────────────┘
+                                │
+                                ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                        CAMADA DE DOMÍNIO                        │
+│  - Entidades Principais (Pastor, Church, Evaluation, Report)    │
+│  - Casos de Uso (EvaluatePastor, SyncExcelData, ExportPdf)      │
+│  - Contratos de Repositório                                     │
+└─────────────────────────────────────────────────────────────────┘
+                                │
+                                ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                         CAMADA DE DADOS                         │
+│  - Supabase Cloud Data Source (PostgreSQL + RLS)                │
+│  - OpenPyXL Local Excel Data Source (Sync Real-time)            │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 📁 Estrutura de Pastas do Repositório
+
+```text
+pastoral_360/
+├── .github/workflows/deploy.yml        # Automação de CI/CD para Flutter Web
+├── seed_data/                          # Sementeira JSON de Pastores, Igrejas e Critérios
+│   ├── pastores.json
+│   ├── churches.json
+│   └── criteria.json
+├── migrations/
+│   └── 001_initial_schema.sql          # Migração SQL DDL PostgreSQL / Supabase
+├── docs/                               # Documentação de Arquitetura e Mapeamento
+│   ├── ARCHITECTURE.md
+│   └── EXCEL_MAPPING.md
+├── lib/
+│   ├── main.dart                       # Ponto de Entrada da Aplicação
+│   ├── core/                           # Temas, Permissões RBAC, Rotas, Provedores
+│   └── src/
+│       └── features/                   # Módulos Clean Architecture (Dashboard, Pastores, Avaliações)
+├── Dockerfile                          # Contentor Docker para Implantação em Nuvem
+├── docker-compose.yml                  # Orquestração Docker
+├── server.py                           # Servidor Python REST API & Conector Excel
+└── expand_excel_services.py            # Servidor de Extração e Validação do Excel
+```
+
+---
+
+## 🚀 Como Executar o Projeto
+
+### Opção A: Execução Web / Servidor Local
 ```bash
-git clone https://github.com/momentous-developments/flutter-starter-app.git
-cd flutter-starter-app
+# 1. Instalar dependências Python
+pip install flask flask-cors openpyxl requests
+
+# 2. Executar o servidor de sincronização
+python server.py
+
+# Aceder no navegador do Computador: http://127.0.0.1:5000
+# Aceder no Telemóvel (Rede Wi-Fi): http://<SEU_IP_LOCAL>:5000
 ```
 
-2. **Install dependencies**
+### Opção B: Implantação com Docker
 ```bash
-flutter pub get
+docker-compose up -d --build
 ```
 
-3. **Run build runner** (for code generation)
-```bash
-dart run build_runner build --delete-conflicting-outputs
-```
+---
 
-4. **Run the app**
-```bash
-flutter run
-```
+## 🔐 Segurança e Permissões (RBAC)
 
-## 📱 Supported Platforms
+O sistema possui controlo granular de acessos configurado para **7 Papéis**:
 
-- ✅ iOS
-- ✅ Android
-- ✅ Web
-- ✅ macOS
-- ✅ Windows
-- ✅ Linux
+| Papel | Permissões |
+| :--- | :--- |
+| `Super Admin` | Acesso total ao sistema, configurações e banco de dados |
+| `Presidente` | Leitura global de todas as avaliações e relatórios executivos |
+| `Secretário Executivo` | Gestão de pastores, distritos e emissão de relatórios |
+| `Tesoureiro` | Acesso a relatórios e dados administrativos |
+| `Supervisor` | Acompanhamento de distritos específicos |
+| `Pastor Distrital` | Preenchimento do Relatório Trimestral do seu distrito |
+| `Oficial da Igreja` | Preenchimento da Avaliação Pastoral por telemóvel |
 
-## 🏗️ Project Structure
+---
 
-```
-lib/
-├── core/                      # Core functionality
-│   ├── constants/            # App constants
-│   ├── error/               # Error handling
-│   ├── models/              # Core data models
-│   ├── providers/           # Global providers
-│   ├── router/              # Navigation setup
-│   ├── services/            # Core services
-│   └── theme/               # Theme configuration
-├── features/                 # Feature modules
-│   ├── auth/                # Authentication
-│   ├── dashboard/           # Dashboard
-│   ├── forms/               # Forms examples
-│   ├── home/                # Home & showcases
-│   ├── notifications/       # Notifications
-│   ├── onboarding/          # Onboarding flow
-│   ├── settings/            # App settings
-│   └── users/               # User management
-├── l10n/                     # Localization files
-├── shared/                   # Shared components
-│   ├── providers/           # Shared providers
-│   └── widgets/             # Reusable widgets
-└── main.dart                # App entry point
-```
-
-## 🎨 Customization
-
-### Theming
-Edit `lib/core/theme/app_theme.dart` to customize:
-- Color schemes
-- Typography
-- Component themes
-- Light/dark mode settings
-
-### Adding New Features
-1. Create a new folder in `lib/features/`
-2. Follow the existing structure:
-   - `data/` - Repositories and data sources
-   - `presentation/` - UI components
-     - `pages/` - Screen widgets
-     - `widgets/` - Feature-specific widgets
-     - `providers/` - Feature state management
-
-### Localization
-1. Add translations to `lib/l10n/app_*.arb` files
-2. Run `flutter gen-l10n` to generate code
-
-## 🧪 Testing
-
-```bash
-# Run all tests
-flutter test
-
-# Run with coverage
-flutter test --coverage
-
-# Generate coverage report
-genhtml coverage/lcov.info -o coverage/html
-```
-
-## 📦 Building for Production
-
-### Web
-```bash
-flutter build web --release
-```
-
-### Android
-```bash
-flutter build apk --release
-# or
-flutter build appbundle --release
-```
-
-### iOS
-```bash
-flutter build ios --release
-```
-
-### Desktop
-```bash
-flutter build macos --release
-flutter build windows --release
-flutter build linux --release
-```
-
-## 🔧 Configuration
-
-### Environment Setup
-Create `.env` files for different environments:
-- `.env.development`
-- `.env.staging`
-- `.env.production`
-
-### API Configuration
-Update `lib/core/services/mock_api_service.dart` with your API endpoints.
-
-## 📚 Key Dependencies
-
-- **State Management**: flutter_riverpod, riverpod_annotation
-- **Navigation**: go_router
-- **UI/UX**: flutter_animate, flex_color_scheme
-- **Utilities**: intl, shared_preferences, cached_network_image
-- **Development**: freezed, json_serializable, build_runner
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🙏 Acknowledgments
-
-- Flutter team for the amazing framework
-- Riverpod for powerful state management
-- The Flutter community for inspiration and packages
+*Desenvolvido e Sistematizado por **Valentino Canguele** | Missão Centro (MCASD 2026)*
