@@ -34,6 +34,8 @@ jobs:
           flutter build web --release || true
           mkdir -p build/web
           cp -r web/* build/web/ 2>/dev/null || true
+          touch build/web/.nojekyll
+          cp build/web/index.html build/web/404.html 2>/dev/null || true
 
       - name: Compactar Artefato Compilado para Download
         run: |
